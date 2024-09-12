@@ -1,0 +1,348 @@
+{
+  "next-shadcn-dashboard-starter-main": {
+    "directories": {
+      "files": [
+        ".eslintrc.json",
+        ".gitignore",
+        ".prettierrc",
+        "LICENSE",
+        "README.md",
+        "auth.config.ts",
+        "auth.ts",
+        "components.json",
+        "env.example.txt",
+        "middleware.ts",
+        "next.config.js",
+        "package-lock.json",
+        "package.json",
+        "postcss.config.js",
+        "tailwind.config.js",
+        "tsconfig.json"
+      ],
+      ".github": {
+        "directories": {
+          "files": [
+            "FUNDING.yml"
+          ]
+        },
+        "files": []
+      },
+      ".husky": {
+        "directories": {
+          "files": [
+            "pre-commit"
+          ]
+        },
+        "files": []
+      },
+      "app": {
+        "directories": {
+          "(auth)": {
+            "directories": {
+              "(signin)": {
+                "directories": {
+                  "files": [
+                    "page.tsx"
+                  ]
+                },
+                "files": []
+              }
+            },
+            "files": []
+          },
+          "api": {
+            "directories": {
+              "auth": {
+                "directories": {
+                  "[...nextauth]": {
+                    "directories": {
+                      "files": [
+                        "route.ts"
+                      ]
+                    },
+                    "files": []
+                  }
+                },
+                "files": []
+              },
+              "uploadthing": {
+                "directories": {
+                  "files": [
+                    "core.ts",
+                    "route.ts"
+                  ]
+                },
+                "files": []
+              }
+            },
+            "files": []
+          },
+          "dashboard": {
+            "directories": {
+              "employee": {
+                "directories": {
+                  "[employeeId]": {
+                    "directories": {
+                      "files": [
+                        "page.tsx"
+                      ]
+                    },
+                    "files": []
+                  },
+                  "files": [
+                    "page.tsx"
+                  ]
+                },
+                "files": []
+              },
+              "kanban": {
+                "directories": {
+                  "files": [
+                    "page.tsx"
+                  ]
+                },
+                "files": []
+              },
+              "files": [
+                "layout.tsx",
+                "page.tsx"
+              ],
+              "profile": {
+                "directories": {
+                  "files": [
+                    "page.tsx"
+                  ]
+                },
+                "files": []
+              },
+              "user": {
+                "directories": {
+                  "[userId]": {
+                    "directories": {
+                      "files": [
+                        "page.tsx"
+                      ]
+                    },
+                    "files": []
+                  },
+                  "files": [
+                    "page.tsx"
+                  ]
+                },
+                "files": []
+              }
+            },
+            "files": []
+          },
+          "files": [
+            "favicon.ico",
+            "globals.css",
+            "layout.tsx",
+            "not-found.tsx"
+          ]
+        },
+        "files": []
+      },
+      "components": {
+        "directories": {
+          "files": [
+            "breadcrumbs.tsx",
+            "dashboard-nav.tsx",
+            "date-range-picker.tsx",
+            "file-upload.tsx",
+            "github-auth-button.tsx",
+            "icons.tsx",
+            "overview.tsx",
+            "recent-sales.tsx"
+          ],
+          "charts": {
+            "directories": {
+              "files": [
+                "area-graph.tsx",
+                "bar-graph.tsx",
+                "pie-graph.tsx"
+              ]
+            },
+            "files": []
+          },
+          "forms": {
+            "directories": {
+              "files": [
+                "employee-form.tsx",
+                "product-form.tsx",
+                "user-auth-form.tsx"
+              ],
+              "user-profile-stepper": {
+                "directories": {
+                  "files": [
+                    "create-profile.tsx"
+                  ]
+                },
+                "files": []
+              }
+            },
+            "files": []
+          },
+          "kanban": {
+            "directories": {
+              "files": [
+                "board-column.tsx",
+                "column-action.tsx",
+                "kanban-board.tsx",
+                "new-section-dialog.tsx",
+                "new-task-dialog.tsx",
+                "task-card.tsx"
+              ]
+            },
+            "files": []
+          },
+          "layout": {
+            "directories": {
+              "ThemeToggle": {
+                "directories": {
+                  "files": [
+                    "theme-provider.tsx",
+                    "theme-toggle.tsx"
+                  ]
+                },
+                "files": []
+              },
+              "files": [
+                "header.tsx",
+                "mobile-sidebar.tsx",
+                "page-container.tsx",
+                "providers.tsx",
+                "sidebar-old.tsx",
+                "sidebar.tsx",
+                "user-nav.tsx"
+              ]
+            },
+            "files": []
+          },
+          "modal": {
+            "directories": {
+              "files": [
+                "alert-modal.tsx"
+              ]
+            },
+            "files": []
+          },
+          "tables": {
+            "directories": {
+              "employee-tables": {
+                "directories": {
+                  "files": [
+                    "cell-action.tsx",
+                    "columns.tsx",
+                    "employee-table.tsx"
+                  ]
+                },
+                "files": []
+              },
+              "user-tables": {
+                "directories": {
+                  "files": [
+                    "cell-action.tsx",
+                    "client.tsx",
+                    "columns.tsx"
+                  ]
+                },
+                "files": []
+              }
+            },
+            "files": []
+          },
+          "ui": {
+            "directories": {
+              "files": [
+                "accordion.tsx",
+                "alert-dialog.tsx",
+                "alert.tsx",
+                "avatar.tsx",
+                "badge.tsx",
+                "breadcrumb.tsx",
+                "button.tsx",
+                "calendar.tsx",
+                "card.tsx",
+                "chart.tsx",
+                "checkbox.tsx",
+                "collapsible.tsx",
+                "data-table.tsx",
+                "dialog.tsx",
+                "dropdown-menu.tsx",
+                "form.tsx",
+                "heading.tsx",
+                "input.tsx",
+                "label.tsx",
+                "modal.tsx",
+                "popover.tsx",
+                "scroll-area.tsx",
+                "select.tsx",
+                "separator.tsx",
+                "sheet.tsx",
+                "skeleton.tsx",
+                "slider.tsx",
+                "switch.tsx",
+                "table.tsx",
+                "tabs.tsx",
+                "textarea.tsx",
+                "toast.tsx",
+                "toaster.tsx",
+                "tooltip.tsx",
+                "use-toast.ts"
+              ]
+            },
+            "files": []
+          }
+        },
+        "files": []
+      },
+      "constants": {
+        "directories": {
+          "files": [
+            "data.ts"
+          ]
+        },
+        "files": []
+      },
+      "hooks": {
+        "directories": {
+          "files": [
+            "useMultistepForm.tsx",
+            "useSidebar.tsx"
+          ]
+        },
+        "files": []
+      },
+      "lib": {
+        "directories": {
+          "files": [
+            "form-schema.ts",
+            "store.ts",
+            "utils.ts"
+          ]
+        },
+        "files": []
+      },
+      "public": {
+        "directories": {
+          "files": [
+            "next.svg",
+            "vercel.svg"
+          ]
+        },
+        "files": []
+      },
+      "types": {
+        "directories": {
+          "files": [
+            "index.ts",
+            "next-auth.d.ts"
+          ]
+        },
+        "files": []
+      }
+    },
+    "files": []
+  }
+}

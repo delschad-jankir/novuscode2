@@ -1,0 +1,149 @@
+{
+    "directories": {
+        "react16-example-app-master": {
+            "files": [
+                "",
+                ".gitignore",
+                "README.md",
+                "package.json",
+                "yarn.lock"
+            ],
+            "directories": {
+                "public": {
+                    "files": [
+                        "",
+                        "data.json",
+                        "favicon.ico",
+                        "index.html",
+                        "manifest.json"
+                    ]
+                },
+                "src": {
+                    "files": [
+                        "",
+                        "App.css",
+                        "App.js",
+                        "App.test.js",
+                        "index.css",
+                        "index.js",
+                        "logo.svg",
+                        "serviceWorker.js",
+                        "theme.js"
+                    ],
+                    "directories": {
+                        "components": {
+                            "files": [
+                                "",
+                                "Characters.js",
+                                "SCLeftNavigation.js",
+                                "SCNav.js",
+                                "SCThemeSelectorButton.js",
+                                "SCTitle.js",
+                                "Tab.js",
+                                "Tabs.js",
+                                "dataApi.js"
+                            ],
+                            "directories": {
+                                "Icons": {
+                                    "files": [
+                                        "",
+                                        "IconBb8.svg",
+                                        "IconC3po.svg",
+                                        "IconCharlie.png",
+                                        "IconFett.svg",
+                                        "IconFranklin.png",
+                                        "IconLucy.png",
+                                        "IconSnoopy.png",
+                                        "IconVader.svg"
+                                    ]
+                                },
+                                "layout": {
+                                    "files": [
+                                        "",
+                                        "SCContainer.js",
+                                        "SCContent.js",
+                                        "SCLeftNav.js",
+                                        "SCTabContent.js"
+                                    ]
+                                }
+                            }
+                        },
+                        "core": {
+                            "files": [
+                                ""
+                            ],
+                            "directories": {
+                                "actions": {
+                                    "files": [
+                                        ""
+                                    ],
+                                    "directories": {
+                                        "LeftNavigation": {
+                                            "files": [
+                                                "",
+                                                "LeftNavigation.actions.js",
+                                                "LeftNavigation.actions.test.js"
+                                            ]
+                                        },
+                                        "ThemeToggle": {
+                                            "files": [
+                                                "",
+                                                "ThemeToggle.actions.js"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "constants": {
+                                    "files": [
+                                        "",
+                                        "routes.js"
+                                    ]
+                                },
+                                "reducers": {
+                                    "files": [
+                                        "",
+                                        "index.js"
+                                    ],
+                                    "directories": {
+                                        "LeftNavigation": {
+                                            "files": [
+                                                "",
+                                                "LeftNavigation.reducer.js",
+                                                "LeftNavigation.reducer.test.js"
+                                            ]
+                                        },
+                                        "ThemeToggle": {
+                                            "files": [
+                                                "",
+                                                "ThemeToggle.reducer.js"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "store": {
+                                    "files": [
+                                        "",
+                                        "index.js"
+                                    ]
+                                },
+                                "utils": {
+                                    "files": [
+                                        "",
+                                        "themeUtils.js"
+                                    ]
+                                }
+                            }
+                        },
+                        "pages": {
+                            "files": [
+                                "",
+                                "PeanutsPage.js",
+                                "StarWarsPage.js"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

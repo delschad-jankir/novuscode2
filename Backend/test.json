@@ -1,0 +1,513 @@
+{
+  "Directory and File Structure": {
+      "directories": {
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master": {
+              "directories": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master"
+              ],
+              "files": []
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master": {
+              "directories": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src"
+              ],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/.gitignore",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/README.md",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/package.json",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/yarn.lock"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public/data.json",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public/favicon.ico",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public/index.html",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public/manifest.json"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src": {
+              "directories": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/pages"
+              ],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/App.css",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/App.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/App.test.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/index.css",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/index.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/logo.svg",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/serviceWorker.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/theme.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components": {
+              "directories": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout"
+              ],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Characters.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCLeftNavigation.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCNav.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCThemeSelectorButton.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCTitle.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Tab.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Tabs.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/dataApi.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconBb8.svg",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconC3po.svg",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconCharlie.png",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconFett.svg",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconFranklin.png",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconLucy.png",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconSnoopy.png",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconVader.svg"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCContainer.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCContent.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCLeftNav.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCTabContent.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core": {
+              "directories": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/constants",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/store",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/utils"
+              ],
+              "files": []
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions": {
+              "directories": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/LeftNavigation",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/ThemeToggle"
+              ],
+              "files": []
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/LeftNavigation": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/LeftNavigation/LeftNavigation.actions.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/LeftNavigation/LeftNavigation.actions.test.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/ThemeToggle": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/ThemeToggle/ThemeToggle.actions.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/constants": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/constants/routes.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers": {
+              "directories": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/LeftNavigation",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/ThemeToggle"
+              ],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/index.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/LeftNavigation": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/LeftNavigation/LeftNavigation.reducer.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/LeftNavigation/LeftNavigation.reducer.test.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/ThemeToggle": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/ThemeToggle/ThemeToggle.reducer.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/store": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/store/index.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/utils": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/utils/themeUtils.js"
+              ]
+          },
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/pages": {
+              "directories": [],
+              "files": [
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/pages/PeanutsPage.js",
+                  "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/pages/StarWarsPage.js"
+              ]
+          }
+      },
+      "files": {
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/.gitignore": "# See https://help.github.com/ignore-files/ for more about ignoring files.\n.idea/\n.DS_Store\n\n# dependencies\n/node_modules\n\n# testing\n/coverage\n\n# production\nbuild\n\n# misc\n.DS_Store\n.env.local\n.env.development.local\n.env.test.local\n.env.production.local\n\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/README.md": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\n\n## Folder Structure\n\nAfter creation, your project should look like this:\n\n```\nmy-app/\n  README.md\n  node_modules/\n  package.json\n  public/\n    index.html\n    favicon.ico\n  src/\n    App.css\n    App.js\n    App.test.js\n    index.css\n    index.js\n    logo.svg\n```\n\n\n## Add styled-components\n\nyarn add styled-components --dev\n\nyarn add react-app-rewired --dev\n\nyarn add react-app-rewire-styled-components --dev\n\n## Add axios\nyarn add axios\n\n## Add redux\nyarn add redux\nyarn add react-redux\nyarn add react-router-dom\nyarn add recompose\n\nyarn add react-boostrap\n\n\n## Add chai\nyarn add chai\n\n## Available Scripts\n\nIn the project directory, you can run:\n\n### `yarn start`\n\nRuns the app in the development mode.<br>\nOpen [http://localhost:3000](http://localhost:3000) to view it in the browser.\n\nThe page will reload if you make edits.<br>\nYou will also see any lint errors in the console.\n\n### `npm test`\n\nLaunches the test runner in the interactive watch mode.<br>\nSee the section about [running tests](#running-tests) for more information.\n\n### `npm run build`\n\nBuilds the app for production to the `build` folder.<br>\nIt correctly bundles React in production mode and optimizes the build for the best performance.\n\nThe build is minified and the filenames include the hashes.<br>\nYour app is ready to be deployed!\n\nSee the section about [deployment](#deployment) for more information.\n\n### `npm run eject`\n\n**Note: this is a one-way operation. Once you `eject`, you can\u2019t go back!**\n\nIf you aren\u2019t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.\n\nInstead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you\u2019re on your own.\n\nYou don\u2019t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn\u2019t feel obligated to use this feature. However we understand that this tool wouldn\u2019t be useful if you couldn\u2019t customize it when you are ready for it.\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/package.json": "{\n  \"name\": \"react16-example-app\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"homepage\": \"https://chrismathers.github.io/react16-example-app/\",\n  \"dependencies\": {\n    \"axios\": \"^0.18.0\",\n    \"bootstrap\": \"3.3.7\",\n    \"gh-pages\": \"^2.0.1\",\n    \"react\": \"^16.5.2\",\n    \"react-bootstrap\": \"^0.32.4\",\n    \"react-dom\": \"^16.5.2\",\n    \"react-redux\": \"5.0.7\",\n    \"react-router-dom\": \"^4.3.1\",\n    \"react-scripts\": \"2.0.4\",\n    \"recompose\": \"^0.30.0\",\n    \"redux\": \"4.0.0\",\n    \"redux-devtools-extension\": \"^2.13.5\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\",\n    \"predeploy\": \"yarn run build\",\n    \"deploy\": \"gh-pages -d build\"\n  },\n  \"eslintConfig\": {\n    \"extends\": \"react-app\"\n  },\n  \"browserslist\": [\n    \">0.2%\",\n    \"not dead\",\n    \"not ie <= 11\",\n    \"not op_mini all\"\n  ],\n  \"devDependencies\": {\n    \"chai\": \"^4.2.0\",\n    \"react-app-rewire-styled-components\": \"^3.0.2\",\n    \"react-app-rewired\": \"^1.6.2\",\n    \"styled-components\": \"^4.0.0-beta.10\"\n  }\n}\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/yarn.lock": "file too long",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public/data.json": "{\n  \"starwars\": {\n    \"characters\": [\n      {\n        \"id\": 1,\n        \"name\": \"C-3P0\",\n        \"description\": \"C-3PO is a droid programmed for etiquette and protocol, built by the heroic Jedi Anakin Skywalker, and a constant companion to astromech R2-D2.\",\n        \"icon\": \"IconC3po.svg\"\n      },\n      {\n        \"id\": 2,\n        \"name\": \"Darth Vader\",\n        \"description\": \"Discovered as a slave on Tatooine by Qui-Gon Jinn and Obi-Wan Kenobi, Anakin Skywalker had the potential to become one of the most powerful Jedi ever.\",\n        \"icon\": \"IconVader.svg\"\n      },\n      {\n        \"id\": 3,\n        \"name\": \"BB-8\",\n        \"description\": \"A skittish but loyal astromech, BB-8 accompanied Poe Dameron on many missions for the Resistance, helping keep his X-wing in working order.\",\n        \"icon\": \"IconBb8.svg\"\n      },\n      {\n        \"id\": 4,\n        \"name\": \"Boba Fett\",\n        \"description\": \"With his customized Mandalorian armor, deadly weaponry, and silent demeanor, Boba Fett was one of the most feared bounty hunters in the galaxy.\",\n        \"icon\": \"IconFett.svg\"\n      }\n    ]\n  },\n  \"peanuts\": {\n    \"characters\": [\n      {\n        \"id\":1,\n        \"name\":\"Charlie\",\n        \"description\":\"Charlie Brown must be the one who suffers, because he\u2019s a caricature of the average person. Most of us are much more acquainted with losing than winning. Winning is great, but it isn\u2019t funny\",\n        \"icon\": \"IconCharlie.png\"\n      },\n      {\n        \"id\":2,\n        \"name\":\"Franklin\",\n        \"description\":\"Franklin and Charlie Brown are always on good terms, Franklin is seen as a good friend to Charlie Brown and is arguably the nicest person to him in the strip. The two occasionally build sandcastles together on the beach, go to Charlie Brown's house and watch movies together.\",\n        \"icon\": \"IconFranklin.png\"\n      },\n\n      {\n        \"id\":3,\n        \"name\":\"Lucy\",\n        \"description\":\"Charlie Brown has a slightly critical opinion of Lucy, as she is always doing mean things to Linus, or dropping fly balls. Charlie Brown also constantly falls for Lucy's \\\"football gag\\\".\",\n        \"icon\": \"IconLucy.png\"\n      },\n      {\n        \"id\":4,\n        \"name\":\"Snoopy\",\n        \"description\":\"Snoopy is Charlie Brown's dog, and they have a strange but strong relationship. Despite them not being from the same species, they are still close friends, although sometimes they are annoyed at each other.\",\n        \"icon\": \"IconSnoopy.png\"\n      }\n    ]\n  }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public/favicon.ico": "\u0000\u0000\u0001\u0000\u0004\u0000\u0010\u0010\u0000\u0000\u0001\u0000 \u0000\ufffd\u0001\u0000\u0000F\u0000\u0000\u0000\u0018\u0018\u0000\u0000\u0001\u0000 \u0000\f\u0003\u0000\u0000)\u0002\u0000\u0000  \u0000\u0000\u0001\u0000 \u00009\u0003\u0000\u00005\u0005\u0000\u0000@@\u0000\u0000\u0001\u0000 \u0000\ufffd\u0006\u0000\u0000n\b\u0000\u0000\ufffdPNG\n\u001a\n\u0000\u0000\u0000\nIHDR\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0010\b\u0003\u0000\u0000\u0000(-\u000fS\u0000\u0000\u0000\ufffdPLTE\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"2PX=r\ufffd)7;*:>H\ufffd\ufffd-BGE\ufffd\ufffd8do5Xb6[eK\ufffd\ufffdK\ufffd\ufffd1MU9gs3S\\I\ufffd\ufffd:gt'03@{\ufffdV\ufffd\ufffdT\ufffd\ufffdA}\ufffdV\ufffd\ufffd@y\ufffd6\\fH\ufffd\ufffd-CII\ufffd\ufffdE\ufffd\ufffd+;@7_i7_jF\ufffd\ufffdJ\ufffd\ufffdK\ufffd\ufffdH\ufffd\ufffd-BHa\ufffd\ufffd,@FC\ufffd\ufffdL\ufffd\ufffd&.0W\ufffd\ufffdN\ufffd\ufffdI\ufffd\ufffd$)+B\ufffd\ufffdJ\ufffd\ufffdR\ufffd\ufffd?v\ufffd>s\ufffd>u\ufffdS\ufffd\ufffd=q\u007fP\ufffd\ufffdP\ufffd\ufffdP\ufffd\ufffd,?D4U^%+-M\ufffd\ufffdK\ufffd\ufffd%+,2OX+<AL\ufffd\ufffd#&&D\ufffd\ufffd%,.I\ufffd\ufffdv\ufffdT\ufffd\u0000\u0000\u0000\u0005tRNSI\ufffd\ufffdJ\ufffde\ufffde\ufffd\u0000\u0000\u0000\ufffdIDATx\u0001M\ufffd\ufffdZEA\f\ufffd\ufffd\u0673\t\ufffd\ufffd%R\ufffd\ufffd\ufffd\ufffdTTh\ufffdG\ufffd\ufffd,\ufffd\ufffd\ufffd=\u0003\ufffd\u0016\ufffd\u007f\ufffdm\ufffdf\ufffdmnf\ufffdA\ufffd$\ufffd>!\u0003\ufffdg\ufffd\ufffdHg\ufffd\ufffdE\u07cf\u0735}\u0002\t\u0006\u077b\ufffd\ufffd\ufffd\ufffdk\u0010d\u0013\ufffd\ufffd\ufffdJo\u0011\ufffd\ufffd\ufffd3\ufffdL\"J\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdQ\ufffd$\ufffd\ufffd\u013c\u001fff\ufffd,\ufffd5i9\u0002\u0019\u031f\ufffdH\ufffd\u001c/mB\u0002\ufffd\ufffdw\ufffd\ufffdw;D\n\ufffd+&\ufffdW\ufffd\u0015\ufffd\ufffd\ufffdD\ufffdo\u0014@\u02b4RI\ufffd\ufffdB\ufffdom\u001a.\u0007\u06f3\u0007\ufffd\u0000\u0000\u0000\u0000IEND\ufffdB`\ufffd\ufffdPNG\n\u001a\n\u0000\u0000\u0000\nIHDR\u0000\u0000\u0000\u0018\u0000\u0000\u0000\u0018\b\u0003\u0000\u0000\u0000\u05e9\ufffd\ufffd\u0000\u0000\u0001ePLTE\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"2RZN\ufffd\ufffdJ\ufffd\ufffd3R[J\ufffd\ufffd)59Y\ufffd\ufffd0KS4W`Q\ufffd\ufffdL\ufffd\ufffd%+-0JR)6::gtC\ufffd\ufffd\"##?v\ufffdU\ufffd\ufffd?w\ufffd<n{&-/Y\ufffd\ufffd=q\u007f:iuB\u007f\ufffdA}\ufffdA{\ufffdB\ufffd\ufffd/IPP\ufffd\ufffd=q\ufffdK\ufffd\ufffd_\ufffd\ufffdL\ufffd\ufffd$();lzR\ufffd\ufffda\ufffd\ufffdI\ufffd\ufffdZ\ufffd\ufffd3U^1MU3T]Z\ufffd\ufffdI\ufffd\ufffdX\ufffd\ufffdF\ufffd\ufffd-BGP\ufffd\ufffd6[e,@E5ZdO\ufffd\ufffd-BHX\ufffd\ufffd+=AW\ufffd\ufffd,@FW\ufffd\ufffdQ\ufffd\ufffd?v\ufffdW\ufffd\ufffd+<A@y\ufffd\"#$\\\ufffd\ufffd4Wa\\\ufffd\ufffdS\ufffd\ufffd$(*.EL^\ufffd\ufffdV\ufffd\ufffd6]h#$%G\ufffd\ufffd#&';jwV\ufffd\ufffd-CIL\ufffd\ufffdZ\ufffd\ufffd^\ufffd\ufffd>u\ufffdS\ufffd\ufffd/HNM\ufffd\ufffd_\ufffd\ufffd\\\ufffd\ufffdM\ufffd\ufffd8doD\ufffd\ufffdD\ufffd\ufffd>t\ufffd+=B[\ufffd\ufffd,>C>t\ufffd<o}@y\ufffd0LS.EKT\ufffd\ufffd$'(%,.A~\ufffdW\ufffd\ufffdC\ufffd\ufffd%+,\\\ufffd\ufffdC!\ufffd\u001d\u0000\u0000\u0000\u0007tRNS\u0006\ufffd\ufffd\ue408\ufffd\ufffdG\ufffd\ufffd\u0000\u0000\u0001OIDATx\u0001l\ufffd\ufffdB\ufffdQ\u0014\ufffd\ufffdu\ufffd\ufffd_\u0233<\ufffd\u0016\ufffd\ufffdv\u001ce\ufffd\ufffd\u0006\ufffd\ufffd\ufffda\u00166\u0016A\u03be\ufffd\u0017\u0004\ufffdv\ufffd{\u0007@\ufffd\u0007\u0000E'\u0000\ufffdd\u0000I\ufffd!\ufffd\u001c\ufffd\ufffd\u001a \u0000\ufffdC\ufffd\ufffdT\ufffd\u000b\ufffdg\u0000\u001c\u00001\ufffdE(\ufffd\u0005\u0014\ufffdSQs\u001a\ufffdi\n\u010f\ufffdZ\ufffd\ufffd\u0016V\u0006\ufffd\u000b\u0000\u0002\ufffd)\ufffdg!\ufffd\ufffdh\ufffd\ufffd\u0010\u0002t\u0005\ufffd-i}\ufffd\ufffd\u0011\ufffd<\ufffd?\u0015\ufffd\ufffdlBZa\u01344{D\ufffd\u233b_e8\ufffdy\u01c1\ufffd\ufffd\u001f3\ufffd)\ufffd\ufffd?\ufffdf;8.\ufffd\u001c\ufffdt\ufffd=\ufffd;\u000e\t:\ufffd52f\u007fKZ\ufffd\u007fl\u0012\ufffd\ufffd\u061a\ufffd9.\ufffd#\ufffd\ufffd\u0002A\ufffdq\ufffd\ufffd\ufffd\u0016\u0006\u001f\ufffd\ufffdV\ufffd\ufffd`=\u0003\u0003$\ufffd\ufffd?_\ufffd\ufffd\ufffd\u0005\ufffdqM\ufffd.\ufffdJ$\u000f\n?^q\ufffd\ufffd\ufffd\u06cf\ufffd.},\ufffd\ufffds\ufffd\ufffd\f\f_Ttt\u053e\u0000\u00151#\u0007\ufffd/(\ufffd-[\u0006\u0012\ufffd\ufffd`\ufffd\ufffd`\ufffd\u0004\ufffd\ufffd\ufffd\ufffdZ\u001fd5\ufffd\ufffd\ufffd\ufffd?\ufffdebZ\ufffd\u0788i.\ufffd\ufffd\f\u0010\u0019\ufffdq\u0384+1\ufffd\u0001}\u008c5\ufffd\u0000\u0000\ufffd\ufffdd\ufffdG\ufffd\ufffd\ufffd\u0000\u0000\u0000\u0000IEND\ufffdB`\ufffd\ufffdPNG\n\u001a\n\u0000\u0000\u0000\nIHDR\u0000\u0000\u0000 \u0000\u0000\u0000 \b\u0003\u0000\u0000\u0000D\ufffd\ufffd\ufffd\u0000\u0000\u0001APLTE\u0000\u0000\u0000\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"2RZV\ufffd\ufffd_\ufffd\ufffdU\ufffd\ufffd=r\ufffd$()'25]\ufffd\ufffdC\ufffd\ufffd0LS<o}X\ufffd\ufffdX\ufffd\ufffd0JQ=p~D\ufffd\ufffd<n{V\ufffd\ufffdE\ufffd\ufffd8do_\ufffd\ufffdE\ufffd\ufffdF\ufffd\ufffdH\ufffd\ufffd9dp_\ufffd\ufffdH\ufffd\ufffdI\ufffd\ufffdF\ufffd\ufffd6[e`\ufffd\ufffd`\ufffd\ufffdL\ufffd\ufffd/GM_\ufffd\ufffdU\ufffd\ufffd'02P\ufffd\ufffd/IPP\ufffd\ufffdX\ufffd\ufffd&/1;ly3R[`\ufffd\ufffdG\ufffd\ufffdT\ufffd\ufffd\\\ufffd\ufffda\ufffd\ufffd1OW\"##Q\ufffd\ufffda\ufffd\ufffdR\ufffd\ufffd=q\ufffd`\ufffd\ufffd.EL+=AT\ufffd\ufffd-CIK\ufffd\ufffd#&'C\ufffd\ufffd^\ufffd\ufffdI\ufffd\ufffd&.04U^^\ufffd\ufffd@y\ufffdZ\ufffd\ufffd$(*[\ufffd\ufffd^\ufffd\ufffd,?DR\ufffd\ufffd\"#$1NV1MTD\ufffd\ufffd>u\ufffd;kxG\ufffd\ufffdR\ufffd\ufffd/HN&-/@y\ufffd>s\ufffd>t\ufffd@z\ufffd]\ufffd\ufffdP\ufffd\ufffd$'(D\ufffd\ufffd]\ufffd\ufffd<n|0JRU\ufffd\ufffd\u000e\ufffd\\\ufffd\u0000\u0000\u0000\ttRNS\u0000%\ufffd\ufffd'\ufffd\ufffd(\ufffd~\ufffd\ufffd\ufffd\u0000\u0000\u0001\ufffdIDATx\u0001\ufffd\ufffd\u0003\ufffdC1\u0014F_\u077fMm\u06f64\ufffdm{\ufffd\u000b\ufffd\ufffdn\ufffd\ufffd\ufffd\ufffd\t\ufffd\u0004A$\ufffd\ufffd\u0007$b\ufffd He\ufffd\u0005\ufffdT\u0010\ufffdW\ufffd\ufffdh\u007f\ufffd\ufffdh\ufffd:PtZ\nQ\ufffd0@.`\ufffd\ufffd`4\ufffd-V\u001b`\ufffdZ\ufffd&\ufffdA\ufffd\u0001#\ufffd\ufffdbk\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd>.''\ufffd\u0003`\u0004C$\bF\ufffd\ufffd\t\ufffd(\u0018\ufffdx\"6X\u0010\ufffd\u0004c\u0012\ufffdT\ufffd\ufffdL\ufffd@I\u001a\ufffd;d\u0000d-\ufffd|\ufffdP,\u0001\u02149\ufffdR\ufffd\ufffd\u001b\ufffdf3\u0014\ufffd\ufffdF\ufffdVmM\u000b\ufffdX\ufffd\ufffd\ufffd\ufffd\u0019\ufffd\u0017@Y\ufffd7\ufffd\ufffd\ufffd\ufffdN\ufffd=\u0012\u0016\ufffd\f\ufffd\ufffd\ufffd\u02aau\n}\u05ac\ufffd+\ufffde\ufffdaiq \ufffd\ufffd76\ufffd\ufffd\ufffd\ufffd=h\n\ufffdZ\ufffd\ufffd\ufffd\u001cl\u0001\ufffd\u001b\ufffd}\ufffd\u0006\u02b1\ufffd[F\ufffdI9A\ufffdk9\u0006\ufffd\ufffd\ufffd\u000b\ufffd\u0014\ufffd3\ufffd\ufffd9\u0013\u03a1\ufffdqB~\ufffd\ufffdb\ufffd\ufffd\ufffdU_\ufffd^\ufffd\ufffd\u0000[\u0007\ufffd\ufffd\u000ew\ufffd\ufffd{z\ufffd\u0007v\ufffd\u001bz\ufffd\ufffd(\ufffd\ufffd(\ufffd\ufffd(\ufffd\ufffd\u0007\ufffd\ufffdf\ufffdq\ufffd\ufffdG\ufffd\ufffd\ufffdk\ufffd\ufffd\ufffdY\ufffd\u0016\ufffd\ufffdf\ufffd\ufffd\ufffd~\ufffd:*4\ufffdQ\\O>\ufffd\ufffd\ufffd\ufffd\ufffd<\u007f\u05d3\ufffdW\ufffd\ufffd\ufffdZ|\u0007\u078b\ufffd7\ufffd\ufffd\ufffdjT\ufffd\ufffd\ufffdn\u000f\ufffd\ufffd\ufffd\u000f\ufffd\ufffd`$H\ufffd+\ufffdGO\ufffd\ufffd\ufffd*\ufffdx\ufffd\ufffd\ufffd\u0001\ufffdX*|\u0002\ufffd\u0018^\ufffd\u0005\u000fd\u000f\u0000\u0000\u0000\u0000IEND\ufffdB`\ufffd\ufffdPNG\n\u001a\n\u0000\u0000\u0000\nIHDR\u0000\u0000\u0000@\u0000\u0000\u0000@\b\u0003\u0000\u0000\u0000\ufffd\ufffd\ufffd\ufffd\u0000\u0000\u0002:PLTE\u0000\u0000\u0000\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"%+-@y\ufffdW\ufffd\ufffd`\ufffd\ufffd^\ufffd\ufffdS\ufffd\ufffdC\ufffd\ufffd,>C*8<X\ufffd\ufffda\ufffd\ufffda\ufffd\ufffdM\ufffd\ufffd+<Aa\ufffd\ufffdX\ufffd\ufffd#%%T\ufffd\ufffdL\ufffd\ufffd=q\u007f>u\ufffdK\ufffd\ufffd`\ufffd\ufffdA}\ufffdL\ufffd\ufffd8do=r\ufffd%+,@y\ufffd^\ufffd\ufffdS\ufffd\ufffd)59=q\ufffdP\ufffd\ufffdU\ufffd\ufffd\"#$P\ufffd\ufffd\\\ufffd\ufffd0JQQ\ufffd\ufffd\"##U\ufffd\ufffd#&&_\ufffd\ufffd>t\ufffd>s\ufffd`\ufffd\ufffd_\ufffd\ufffd5Yc1OW5Zd1NV+=B1MU+;@/GM\\\ufffd\ufffd*;?3S\\)8<2RZ_\ufffd\ufffd+=A]\ufffd\ufffd,@F,@E&-/0KS7alO\ufffd\ufffd9dp8amB~\ufffdE\ufffd\ufffdP\ufffd\ufffdN\ufffd\ufffd'023T]]\ufffd\ufffd?x\ufffd3U^C\ufffd\ufffd6\\gU\ufffd\ufffd&.0D\ufffd\ufffd7_iR\ufffd\ufffdH\ufffd\ufffdI\ufffd\ufffdM\ufffd\ufffd$(*?v\ufffdZ\ufffd\ufffdX\ufffd\ufffd-AG#$%[\ufffd\ufffd8co[\ufffd\ufffdW\ufffd\ufffdC\ufffd\ufffd'25?v\ufffd8bn%*+L\ufffd\ufffdN\ufffd\ufffd2PX)7;=p~(58^\ufffd\ufffdP\ufffd\ufffd4WaQ\ufffd\ufffdT\ufffd\ufffd0JRQ\ufffd\ufffdT\ufffd\ufffdI\ufffd\ufffd6]hR\ufffd\ufffdT\ufffd\ufffd0LSF\ufffd\ufffd9eqE\ufffd\ufffdE\ufffd\ufffd9gsF\ufffd\ufffdC\ufffd\ufffd#&'\\\ufffd\ufffd`\ufffd\ufffd&/16\\fB\ufffd\ufffdA{\ufffdR\ufffd\ufffd]\ufffd\ufffd(47%,.*:>*9=9fr:gt7^iU\ufffd\ufffd?w\ufffdZ\ufffd\ufffdX\ufffd\ufffd^\ufffd\ufffdQ\ufffd\ufffdH\ufffd\ufffd)6:V\ufffd\ufffd'034U^E\ufffd\ufffd.EL.FMK\ufffd\ufffd@z\ufffdS\ufffd\u001c\u000e\u0000\u0000\u0000\u0019tRNS\u0000*\ufffd\ufffd\ufffd\ufffd\u0006\ufffd\ufffd\ufffd\t\ufffd\ufffd\ufffd+\ufffd\ufffd\ufffd\ufffd\u0510,\ufffd\ufffd\ufffd\ufffd=V\ufffd\u0000\u0000\u0004\fIDATx\u0001\ufffd\u02f5\u0001C!\u0000\u0004\ufffd\uf296\ufffdC|\ufffd\u0005\ufffd\ufffd\u0005^yR]\ufffdM\ufffd\ufffdO]\ufffd\ufffd\ufffd\ufffd0N\ufffd2\ufffd\ufffd\ufffd\ufffd\"\u001b\u0019\ufffd\ufffd\ufffd(0V\u0015\ufffd(\ufffdY%PDT-~(m\ufffd\ufffd!\ufffdK\f\ufffdY\ufffd\u0015~\ufffd\ufffd\ufffdI\ufffdf{\ufffd\ufffd\u001f\ufffd\ufffda\u007f\ufffd\ufffd\ufffd\ufffd3\ufffd\ufffdOp&\ufffd\u001c\u0424\ufffd\ufffd\u0000x\ufffd\ufffd#\ufffdj\ufffd\ufffd\u06b6m\ufffdm\ufffd\ufffdc)]m\ufffd\ufffd\ufffd\ufffd)\u01a7gf\ufffd\u0014hk\ufffd\ufffd\ufffd\u04a0\ufffdgg\ufffd\u01d9\ufffd\ufffd\u0019\ufffd+X\ufffd\ufffd\ufffduiy\u0005V\u05ea\ufffdk\ufffd\ufffd\ufffd\\[\ufffd:,\ufffd\b6\ufffd\ufffdj\u0132\n;\ufffd\"\ufffd;\ufffd\ufffdX\ufffd\ufffd\u0001\ufffdf\ufffd\ufffd\u0011\ufffd\ufffd\ufffd\ufffd\ufffdS\ufffd\ufffd\ufffd\ufffd8=\ufffdo\ufffd;\ufffd\ufffd\ufffd(\u0018\ufffd\ufffd\ufffd\u04e5Bk\ufffde\ufffd\ufffd\u0015\\\u001b\u00057p+m\ufffd\ufffd\ufffd\ufffdN\ufffd<\ufffd\ufffdQ\ufffd\bO\ufffd\ufffd\ufffd\u0005\ufffd\ufffd\ufffdy\ufffdg\ufffd\u0015tt\ufffd\ufffd\u001bo\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdV\ufffd\u0001\ufffd\ufffd\ufffds\u0002\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd&_\ufffda\u0014\ufffd\ufffd\ufffdV\u0015~\ufffd\ufffd\u0019?\ufffd*8\ufffd\ufffdQ ;8\ufffd\ufffd,\ufffd\ufffd\ufffd\u000bf\ufffd\ufffd\ufffd\u001d1\u000b\ufffdx\ufffd\ufffd\u05e7\ufffd\u0004*\ufffd\ufffd\ufffdA\ufffd\ufffd\ufffda#\b\ufffd\ufffd\u0016\ufffd\ufffd#\ufffdnP\ufffdi+\ufffd\ufffdC\ufffd,\ufffd\ufffd\ufffd\ufffd\ufffd_\ufffdNb\ufffd\ufffd\u00f8\ufffd\u0005\u0000\ufffdH\ufffdB*\ufffd\u04a6 \ufffdL(\u0000^<\ufffd\u00c1\ufffdL6\u0007pJ\ufffdP\ufffd\ufffd\b\ufffd\ufffd\ufffd\ufffd%\"\ufffdR,\ufffd9\u0005\ufffde3eR\ufffda1\ufffd(\n\ufffd\ufffdq\ufffd8\u064e\ufffd\ufffdmK\u02f1m\u01b6m\ufffd\ufffd\ufffdyi!\ufffd\u000e\u03aaY\ufffdu\ufffd\ufffd\ufffd_\ufffd\ufffd?i\ufffd\ufffd\ufffd+\ufffd\u000f\ufffd\ufffdA\u0011|\u0016\ufffd{\ufffd\ufffd\ufffd?\ufffd\ufffd_En\u0001).\u0001J\ufffdD\ufffd<\ufffd\n\ufffd\ufffd\ufffdZ\\Ts\ufffdR*\b(\u0017\t\ufffd\ufffd\u0005J\ufffd\ufffd\u0002\ufffdu\u0010X/\u001a\n4J\u00139\ufffd\ufffd5\ufffdDE\ufffd4k\ufffd4\ufffd&i\ufffdV4\ufffd\u0002\ufffd\ufffd\ufffd\u0016\b\ufffd\ufffdvsf:\ufffdg,\ufffd\ufffd\ufffdBC\ufffd\ufffd$\ufffd\b\ufffd\ufffd\ufffd\ue047\ufffd@\u0011\ufffdI_?\u0003<\u001d\u0014\ufffd!\f^\ufffd\ufffd\ufffd\u04fd\ufffd\ufffd\ufffd\ufffdB\ufffd%\u0010L\ufffdw\ufffd\u0018\u0006FD1\ufffd\ufffd\ufffd(F\ufffd\u001e\ufffd\ufffd\u001eH\ufffd%0\ufffd\u0003\ufffd\u0019\ufffd\ufffd\u0604(\ufffd0\ufffd\u0012\ufffd\ufffd\u0018\u0017'\ufffd\ufffd\u0001\ufffdN.0u\ufffd@\ufffdY\ufffdP\u0004W\ufffdI\ufffdaN\ufffdK\f\ufffd\u000f\ufffd\ufffd?\ufffd\u04f5\ufffd=\ufffde\ufffdv/c\ufffd\ufffd\ufffd\ufffd0c\u00160\ufffd2\ufffd\ufffd:\ufffd06R-u\ufffd\u012d\\Q\u0336\ufffd\u4d3c\ufffd6R#\n\ufffdF\ufffd\ufffd6\ufffd\ufffdr\u0541\ufffd\ufffdu\ufffd\ufffdm\ufffd\ufffd\ufffd\u007f\ufffd\ufffdI\ufffdi~\u0001 \ufffd\ufffd\ufffd\ufffd\u00cfsP\ufffd\"\ufffd\u0000\u000b\ufffd\neiy\ufffd\ufffdP\ufffd\ufffd\ufffd\ufffd\uda0a\udde1\ufffd\ufffd\ufffd,S]U\ufffd\ufffdV\ufffd\u001b\ufffd\u0594\ufffd\ufffdZ\ufffd\ufffdo\ufffd\ufffd\u001b\ufffdxz\ufffd\ufffd\ufffdSnm\ufffd{\u06bawa\u0644\ufffd\u001e\ufffd\u017b\ufffd\ufffd\ufffd(mg/\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0005\ufffd[\ufffd\b\u0018\u0019b\ufffd\ufffd\u0017q\ufffd\ufffd&\u056f\u0007\ufffd\ufffd$\u0016\ufffdz\u020a\u0017\ufffd\u0004H>a\ufffdKT1/\ufffd\ufffd1O\ufffd\ufffd0\ufffd.\u007fh\u0007\u0347Y\ufffdA\ufffd\ufffd\ufffd\n-\ufffd>\u06cb\ufffd\ufffd\ufffdX\u0562\ufffd}\u07e8\ufffd\f\ufffd\ufffd;\u0007\ufffd\ufffdN\ufffd\u007f\ufffdv\ufffd\ufffd\ufffd\u03b8\ufffd1\u0000\ufffd\ufffd\ufffd\ufffdO@&v/\ufffd\ufffd_\ufffd\ufffd\\\ufffd\u000e\ufffd\\\ufffd.\u000f\ufffd\ufffd+0\ufffd\u0003;\u001c\u0014\u0001!\u0006f\ufffd\f\u0010\ufffd\ufffd\ufffd%\ufffd JY\ufffdO\ufffd\u008e'/\ufffd]_\ufffd;\ufffd\u0010\ufffd'\"&N\ufffdn\ta\u0011Q\ufffd^\u0000\u0019\ufffdcx\ufffdA\ufffd\ufffd\u0000\u0000\u0000\u0000IEND\ufffdB`\ufffd",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public/index.html": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <link rel=\"shortcut icon\" href=\"%PUBLIC_URL%/favicon.ico\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <!--\n      manifest.json provides metadata used when your web app is added to the\n      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/\n    -->\n    <link rel=\"manifest\" href=\"%PUBLIC_URL%/manifest.json\">\n    <!--\n      Notice the use of %PUBLIC_URL% in the tags above.\n      It will be replaced with the URL of the `public` folder during the build.\n      Only files inside the `public` folder can be referenced from the HTML.\n\n      Unlike \"/favicon.ico\" or \"favicon.ico\", \"%PUBLIC_URL%/favicon.ico\" will\n      work correctly both with client-side routing and a non-root public URL.\n      Learn how to configure a non-root public URL by running `npm run build`.\n    -->\n    <title>React App</title>\n  </head>\n  <body>\n    <noscript>\n      You need to enable JavaScript to run this app.\n    </noscript>\n    <div id=\"root\"></div>\n    <!--\n      This HTML file is a template.\n      If you open it directly in the browser, you will see an empty page.\n\n      You can add webfonts, meta tags, or analytics to this file.\n      The build step will place the bundled scripts into the <body> tag.\n\n      To begin the development, run `npm start` or `yarn start`.\n      To create a production bundle, use `npm run build` or `yarn build`.\n    -->\n  </body>\n</html>\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/public/manifest.json": "{\n  \"short_name\": \"React App\",\n  \"name\": \"Create React App Sample\",\n  \"icons\": [\n    {\n      \"src\": \"favicon.ico\",\n      \"sizes\": \"64x64 32x32 24x24 16x16\",\n      \"type\": \"image/x-icon\"\n    }\n  ],\n  \"start_url\": \".\",\n  \"display\": \"standalone\",\n  \"theme_color\": \"#000000\",\n  \"background_color\": \"#ffffff\"\n}\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/App.css": "",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/App.js": "import React, { Component } from 'react';\nimport { BrowserRouter as Router, Route } from \"react-router-dom\";\nimport StarWarsPage from \"./pages/StarWarsPage\";\nimport PeanutsPage from \"./pages/PeanutsPage\";\nimport './App.css';\n\nimport { ThemeProvider, createGlobalStyle } from \"styled-components\"\nimport SCLeftNavigation from \"./components/SCLeftNavigation\";\nimport * as routes from \"./core/constants/routes\";\nimport {determineTheme, determineValue} from \"./core/utils/themeUtils\";\nimport {connect} from \"react-redux\";\nimport SLThemeSelectorButton from \"./components/SCThemeSelectorButton\";\nimport SCContainer from \"./components/layout/SCContainer\";\nimport SCContent from \"./components/layout/SCContent\";\nimport SCLeftNav from \"./components/layout/SCLeftNav\";\n\nconst GlobalStyle = createGlobalStyle`\n    body {\n        margin: 0 auto;\n        background-color: ${props => props.theme.colors.bodyBgColor};\n        color: ${props => props.theme.colors.baseTextColor};\n        font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    }\n    .flex-row {\n          display: flex;\n          flex-direction: row;\n    }\n    .flex-col {\n          display: flex;\n          flex-direction: column;\n    }\n    p {\n        margin: 0;\n    }\n    svg {\n        min-width: 48px;\n    }\n    ul {\n        list-style: none;\n    }\n    .c_tabsSwitcher {\n          min-width: 500px;\n          max-width: 40%;\n          margin: 0 auto;\n    }\n    \n    .nav--is-hidden {\n        display: none;\n    }\n    \n    @media only screen and (max-width: 500px) {\n        .c_tabsSwitcher {\n            min-width: 210px;\n            max-width: none;\n            margin: 0;\n        }\n    }\n`;\n\nclass App extends Component {\n\n    render () {\n        const navItems = [\n            {id: 1, route: routes.STARWARS,   label: 'Star Wars'},\n            {id: 2, route: routes.PEANUTS,  label: 'Peanuts'}\n        ];\n\n        const { selectedTheme } = this.props;\n        const theme = determineTheme(determineValue(selectedTheme));\n\n        return (\n            <ThemeProvider theme={theme}>\n                <Router>\n                    <React.Fragment>\n                        <GlobalStyle/>\n                        <SCContainer>\n                            <SCLeftNav>\n                                <SLThemeSelectorButton />\n                                <SCLeftNavigation stacked navItems={navItems} />\n                            </SCLeftNav>\n                            <SCContent>\n                                <Route exact path=\"/\" component={StarWarsPage} />\n                                <Route path=\"/starwars\" component={StarWarsPage} />\n                                <Route path=\"/peanuts\" component={PeanutsPage} />\n                            </SCContent>\n                        </SCContainer>\n                    </React.Fragment>\n                </Router>\n            </ThemeProvider>\n        )\n    }\n}\n\n\n//export default App;\n\nconst mapStateToProps = (state) => ({\n    selectedTheme: state.themeState.selectedTheme\n});\n\nconst mapDispatchToProps = () => ({});\n\nexport default connect(\n    mapStateToProps,\n    mapDispatchToProps\n)(App);\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/App.test.js": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport App from './App';\n\nit('renders without crashing', () => {\n    const div = document.createElement('div');\n    ReactDOM.render(<App />, div);\n});",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/index.css": "body {\n  margin: 0;\n  padding: 0;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\",\n    \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\",\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, \"Courier New\",\n    monospace;\n}\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/index.js": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport { Provider } from 'react-redux';\nimport 'bootstrap/dist/css/bootstrap.css';\nimport './index.css';\nimport * as serviceWorker from './serviceWorker';\nimport store from \"./core/store\";\n\nimport App from './App';\n\nReactDOM.render(\n    <Provider store={store}>\n        <App />\n    </Provider>,\n    document.getElementById('root')\n);\n\n// If you want your app to work offline and load faster, you can change\n// unregister() to register() below. Note this comes with some pitfalls.\n// Learn more about service workers: http://bit.ly/CRA-PWA\nserviceWorker.unregister();\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/logo.svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 841.9 595.3\">\n    <g fill=\"#61DAFB\">\n        <path d=\"M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z\"/>\n        <circle cx=\"420.9\" cy=\"296.5\" r=\"45.7\"/>\n        <path d=\"M520.5 78.1z\"/>\n    </g>\n</svg>\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/serviceWorker.js": "// In production, we register a service worker to serve assets from local cache.\n\n// This lets the app load faster on subsequent visits in production, and gives\n// it offline capabilities. However, it also means that developers (and users)\n// will only see deployed updates on the \"N+1\" visit to a page, since previously\n// cached resources are updated in the background.\n\n// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.\n// This link also includes instructions on opting out of this behavior.\n\nconst isLocalhost = Boolean(\n  window.location.hostname === 'localhost' ||\n    // [::1] is the IPv6 localhost address.\n    window.location.hostname === '[::1]' ||\n    // 127.0.0.1/8 is considered localhost for IPv4.\n    window.location.hostname.match(\n      /^127(?:\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/\n    )\n);\n\nexport function register(config) {\n  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {\n    // The URL constructor is available in all browsers that support SW.\n    const publicUrl = new URL(process.env.PUBLIC_URL, window.location);\n    if (publicUrl.origin !== window.location.origin) {\n      // Our service worker won't work if PUBLIC_URL is on a different origin\n      // from what our page is served on. This might happen if a CDN is used to\n      // serve assets; see https://github.com/facebook/create-react-app/issues/2374\n      return;\n    }\n\n    window.addEventListener('load', () => {\n      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;\n\n      if (isLocalhost) {\n        // This is running on localhost. Let's check if a service worker still exists or not.\n        checkValidServiceWorker(swUrl, config);\n\n        // Add some additional logging to localhost, pointing developers to the\n        // service worker/PWA documentation.\n        navigator.serviceWorker.ready.then(() => {\n          console.log(\n            'This web app is being served cache-first by a service ' +\n              'worker. To learn more, visit https://goo.gl/SC7cgQ'\n          );\n        });\n      } else {\n        // Is not local host. Just register service worker\n        registerValidSW(swUrl, config);\n      }\n    });\n  }\n}\n\nfunction registerValidSW(swUrl, config) {\n  navigator.serviceWorker\n    .register(swUrl)\n    .then(registration => {\n      registration.onupdatefound = () => {\n        const installingWorker = registration.installing;\n        installingWorker.onstatechange = () => {\n          if (installingWorker.state === 'installed') {\n            if (navigator.serviceWorker.controller) {\n              // At this point, the old content will have been purged and\n              // the fresh content will have been added to the cache.\n              // It's the perfect time to display a \"New content is\n              // available; please refresh.\" message in your web app.\n              console.log('New content is available; please refresh.');\n\n              // Execute callback\n              if (config.onUpdate) {\n                config.onUpdate(registration);\n              }\n            } else {\n              // At this point, everything has been precached.\n              // It's the perfect time to display a\n              // \"Content is cached for offline use.\" message.\n              console.log('Content is cached for offline use.');\n\n              // Execute callback\n              if (config.onSuccess) {\n                config.onSuccess(registration);\n              }\n            }\n          }\n        };\n      };\n    })\n    .catch(error => {\n      console.error('Error during service worker registration:', error);\n    });\n}\n\nfunction checkValidServiceWorker(swUrl, config) {\n  // Check if the service worker can be found. If it can't reload the page.\n  fetch(swUrl)\n    .then(response => {\n      // Ensure service worker exists, and that we really are getting a JS file.\n      if (\n        response.status === 404 ||\n        response.headers.get('content-type').indexOf('javascript') === -1\n      ) {\n        // No service worker found. Probably a different app. Reload the page.\n        navigator.serviceWorker.ready.then(registration => {\n          registration.unregister().then(() => {\n            window.location.reload();\n          });\n        });\n      } else {\n        // Service worker found. Proceed as normal.\n        registerValidSW(swUrl, config);\n      }\n    })\n    .catch(() => {\n      console.log(\n        'No internet connection found. App is running in offline mode.'\n      );\n    });\n}\n\nexport function unregister() {\n  if ('serviceWorker' in navigator) {\n    navigator.serviceWorker.ready.then(registration => {\n      registration.unregister();\n    });\n  }\n}\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/theme.js": "export default {\n\n    lightTheme: {\n        colors: {\n            bodyBgColor: '#5591d4',\n            baseTextColor: '#000',\n            panelColor: 'white',\n            panelBorderColor: 'darkgray',\n            tabColor: 'gainsboro',\n            tabTextColor: '#1d6ab7',\n            tabSelectedTextColor: 'black',\n            leftNavColor: 'blanchedalmond',\n            leftNavBorderColor: 'darkgray',\n            rightPanelColor: '#f2f2f2',\n            H4Color: 'black'\n        },\n\n        units: {\n            tabBorderRadius: '10px',\n            panelBorderRadius: '17px'\n        }\n    },\n\n    darkTheme: {\n        colors: {\n            bodyBgColor: '#5591d4',\n            baseTextColor: '#000',\n            panelColor: 'white',\n            panelBorderColor: 'transparent',\n            tabColor: 'gainsboro',\n            tabTextColor: '#1d6ab7',\n            tabSelectedTextColor: 'black',\n            leftNavColor: 'aliceblue',\n            leftNavBorderColor: 'lightskyblue',\n            rightPanelColor: 'black',\n            H4Color: 'white'\n        },\n\n        units: {\n            tabBorderRadius: '10px',\n            panelBorderRadius: '17px'\n        }\n    }\n};",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Characters.js": "import React from 'react'\nimport PropTypes from 'prop-types';\nimport styled from \"styled-components\"\n\nconst SCPanel = styled.div`\n    display: flex;\n    flex-direction: row;\n    padding: 14px;\n    border: 1px solid ${props => props.theme.colors.panelBorderColor};\n    border-radius: ${props => props.theme.units.panelBorderRadius};\n    background-color: ${props => props.theme.colors.panelColor};\n    \n    img {\n       max-height: 72px;\n    }\n  \n    @media only screen and (max-width: 500px) {\n        font-size: 13px;\n        max-width: none;\n        padding: 10px;\n        border-radius: 9px;\n    }\n`\n\nconst SCText = styled.div`\n    display: flex;\n    flex-direction: column;\n    margin-left: 12px;\n`\n\nconst SCTitle = styled.h3`\n    margin: 0;\n`\n\nclass Characters extends React.Component {\n    constructor(props) {\n        super(props);\n        this.state = {\n            starwars: null,\n            peanuts: null,\n            characters: null\n        }\n    }\n\n    // not totally required for this class\n    static propTypes = {\n        starwars: PropTypes.array,\n        peanuts: PropTypes.array,\n        characters: PropTypes.array\n    };\n\n    static defaultProps = {\n        starwarspage: '',\n        peanutspage: ''\n    };\n\n   render () {\n\n        const {...props} = this.props;\n        let current = props.currentTab;\n        const page = props.page;\n\n        const characterDetails = page.map((character) => {\n            if (character.id === current) {\n                return <SCPanel\n                        key={character.id}\n                    >\n                        <img src={require(\"./Icons/\" + character.icon)} alt={character.icon} />\n                        <SCText className='m_tabpanel_text' key={character.id}>\n                            <SCTitle>{character.name}</SCTitle>\n                            <p>{character.description}</p>\n                        </SCText>\n                    </SCPanel>\n            } else {\n                return null;\n            }\n        });\n\n        return (\n                <React.Fragment>\n                   {characterDetails}\n                </React.Fragment>\n        )\n    }\n}\n\nexport default Characters;",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCLeftNavigation.js": "import React, {Component} from 'react';\nimport { withRouter } from 'react-router-dom';\nimport { connect } from 'react-redux';\nimport { compose } from \"recompose\";\nimport { selectItem } from \"../core/actions/LeftNavigation/LeftNavigation.actions\";\nimport SCNav, {SCNavItem} from \"./SCNav\";\n\nexport class SCLeftNavigation extends Component {\n\n    render() {\n\n        const {\n            selectedItem,\n            navItems\n        } = this.props;\n\n        const onNavItemClick = (item) => {\n            this.props.selectItem(item);\n            this.props.history.push(item.route);\n        };\n\n        const getActiveKey = selectedItem => navItems.find( item => item.id === selectedItem.id );\n\n        let stacked = this.props.stacked;\n\n        return (\n            <SCNav\n                bsStyle=\"tabs\"\n                activeKey={getActiveKey(selectedItem||navItems[0])}\n                stacked={stacked}\n            >\n                {navItems.map(item => <SCNavItem key={item.id} eventKey={item} onSelect={onNavItemClick}>{item.label}</SCNavItem>)}\n            </SCNav>\n        )\n    }\n}\n\nconst mapStateToProps = (state) => ({\n    selectedItem: state.leftNavigationState.selectedItem\n});\n\nconst mapDispatchToProps = (dispatch) => ({\n    selectItem: item => dispatch(selectItem(item)),\n});\n\nexport default compose(\n    withRouter,\n    connect(mapStateToProps, mapDispatchToProps)\n)(SCLeftNavigation);",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCNav.js": "import React, {Component} from 'react';\nimport styled from \"styled-components\";\nimport {Nav, NavItem} from 'react-bootstrap';\n\nconst StyledBootstrapNav = styled(Nav)`\n    &.nav {\n      margin-bottom: 4em;\n      padding-left: 0;\n      list-style: none;\n    }\n    .nav > li {\n      position: relative;\n      display: block;\n    }\n    &.nav > li > a {\n      padding: 15px;\n    }\n    .nav > li > a:hover,\n    .nav > li > a:focus {\n      text-decoration: none;\n      background-color: ${props => props.theme.colors.navLiColor};\n    }\n    .nav > li.disabled > a {\n      color: ${props => props.theme.colors.btnDefaultDisabledColor};\n    }\n    .nav > li.disabled > a:hover,\n    .nav > li.disabled > a:focus {\n      color: ${props => props.theme.colors.btnDefaultDisabledColor};\n      text-decoration: none;\n      background-color: transparent;\n      cursor: not-allowed;\n    }\n    .nav .open > a,\n    .nav .open > a:hover,\n    .nav .open > a:focus {\n      background-color: ${props => props.theme.colors.navLiColor};\n    }\n    .nav &.nav-divider {\n      height: 1px;\n      margin: 9px 0;\n      overflow: hidden;\n      background-color: ${props => props.theme.colors.bodyBorderColor};\n    }\n    .nav > li > a > img {\n      max-width: none;\n    }\n    &.nav-tabs {\n      border: none;\n      font-weight: normal;\n    }\n    &.nav-tabs > li {\n      float: left;\n      margin-bottom: -1px;\n      border-bottom: none;\n      border-top: 1px solid ${props => props.theme.colors.bodyBorderColor};\n    }\n    &.nav-tabs > li:last-of-type {\n      border-bottom: 1px solid ${props => props.theme.colors.bodyBorderColor};\n    }\n    \n    &.nav-tabs > li > a {\n      font-weight: normal;\n      margin-right: 0;\n      border-radius: 0;\n      color: ${props => props.theme.colors.navItemColor};\n    }\n    &.nav-tabs > li > a:hover {\n      border-color: transparent;\n      border-radius: 0;\n      color: ${props => props.theme.colors.navItemColorHover};\n    }\n    &.nav-tabs > li.active > a,\n    &.nav-tabs > li.active > a:hover,\n    &.nav-tabs > li.active > a:focus {\n      color: ${props => props.theme.colors.navItemColorActive};\n      background-color: ${props => props.theme.colors.navItemBgColorActive};\n      border: none;\n      border-radius: 0;\n      font-weight: 500;\n      margin-right: 0;\n    }\n`;\n\nconst StyledBootstrapNavItem = styled(NavItem)`\n    width: 100%;\n    font-size: 15px;\n    font-weight: bold;\n    font-style: normal;\n    font-stretch: normal;\n    line-height: normal;\n    letter-spacing: normal;\n    border: none;\n    background-color: transparent;\n    padding: 0;\n    border-radius: 0;\n    \n    &:first-of-type {\n      border: none;\n    }\n    &:first-of-type,\n    &:last-of-type {\n      border-radius: 0;\n    }\n    \n    &.list-group-item {\n      color: ${props => props.theme.colors.listColor};\n    }\n`;\n\n\nexport class SCNavItem extends Component {\n    render() {\n        const {...props} = this.props;\n        return <StyledBootstrapNavItem {...props}/>\n    }\n}\n\nexport default class SCNav extends Component {\n    render() {\n        const {...props} = this.props;\n        return (\n            <StyledBootstrapNav\n                {...props}\n            />\n        );\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCThemeSelectorButton.js": "import React, {Component} from 'react'\nimport {\n    ToggleButtonGroup,\n    ToggleButton\n} from 'react-bootstrap';\nimport styled from 'styled-components';\n\nimport {\n    selectTheme\n} from \"../core/actions/ThemeToggle/ThemeToggle.actions\";\n\nimport {compose} from \"recompose\";\nimport connect from \"react-redux/es/connect/connect\";\n\nconst SCToggleButtonGroup = styled(ToggleButtonGroup)`\n    padding-top: 25px;\n    margin: 15px 15px 30px;\n    display: flex;\n    justify-content: center;\n`;\n\nexport class SLThemeSelectorButton extends Component {\n\n    handleChange = (selection) => {\n        this.props.selectTheme(selection);\n    };\n\n    render() {\n        const {\n            selectedTheme\n        } = this.props;\n\n        return <SCToggleButtonGroup\n            name=\"themeSelectorToggle\"\n            type=\"radio\"\n            value={selectedTheme}\n            onChange={this.handleChange}\n        >\n            <ToggleButton value={1}>Light Theme</ToggleButton>\n            <ToggleButton value={2}>Dark Theme</ToggleButton>\n        </SCToggleButtonGroup>\n    }\n}\n\nconst mapStateToProps = (state) => ({\n    selectedTheme: state.themeState.selectedTheme\n});\n\nconst mapDispatchToProps = (dispatch) => ({\n    selectTheme: selection => dispatch(selectTheme(selection)),\n});\n\nexport default compose(\n    connect(mapStateToProps, mapDispatchToProps)\n)(SLThemeSelectorButton);",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCTitle.js": "import React, {Component} from 'react'\nimport styled from \"styled-components\";\n\nconst StyledH4 = styled.h4`\n    line-height: 2em;\n    margin: 0 0 2em 0;\n    display: inline-block;\n    color: ${props => props.theme.colors.H4Color};\n`;\n\nexport default class SCTitle extends Component {\n    render() {\n        const {...props} = this.props;\n        return (\n            <StyledH4\n                {...props}\n            />\n        )\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Tab.js": "import React from 'react'\nimport styled from 'styled-components'\n\nconst SCTabItem = styled.li`\n    background-color: ${props => (props.isCurrent \n        ? props => props.theme.colors.panelColor\n        : props.theme.colors.tabColor\n    )};\n    border-top-left-radius: ${props => props.theme.units.tabBorderRadius};\n    border-top-right-radius: ${props => props.theme.units.tabBorderRadius};\n    padding: 8px 8px 5px 8px;\n    margin-left: 1px;\n    color: ${props => (props.isCurrent ? props.theme.colors.tabSelectedTextColor : props.theme.colors.tabTextColor)};\n    font-weight: bold;\n    border: 1px solid ${props => props.theme.colors.panelBorderColor};\n    border-bottom-color: transparent;\n    margin-right: 2px;\n`;\n\nexport default class Tab extends React.Component {\n    constructor (props) {\n        super(props);\n\n        this.handleClick = this.handleClick.bind(this)\n    }\n\n    handleClick (e) {\n        e.preventDefault();\n        this.props.handleClick();\n    }\n\n    render () {\n        const {...props} = this.props;\n        return (\n            <SCTabItem\n                aria-controls={'panel-' + props.id}\n                aria-selected='true'\n                role='tab'\n                isCurrent={props.isCurrent}\n            >\n                <span onClick={this.handleClick}>\n                    {props.name}\n                </span>\n            </SCTabItem>\n        )\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Tabs.js": "import React from 'react'\nimport PropTypes from 'prop-types';\n\nimport Tab from '../components/Tab.js'\nimport styled from 'styled-components'\n\nconst SCTabList = styled.ul`\n    display: flex;\n    flex-direction: row;\n    margin: 0 3px -1px 3px;\n      \n    @media only screen and (max-width: 500px) {\n        font-size: 12px;\n        padding: 0 14px;\n        max-width: none;\n        width: 100%;\n    }\n`\n\nexport default class Tabs extends React.Component {\n    static propTypes = {\n        data: PropTypes.array\n    };\n\n    static defaultProps = {\n        data: []\n    };\n\n    constructor (props) {\n        super(props);\n        this.handleClick = this.handleClick.bind(this)\n    }\n\n    handleClick (tab) {\n        console.log(\"tab \", tab);\n        this.props.changeTab(tab)\n    }\n\n    render () {\n        const {...props} = this.props;\n        return (\n            <SCTabList role='tablist'>\n                {this.props.data.map(\n                    function (tab) {\n                        return (\n                            <Tab\n                                key={tab.id}\n                                handleClick={this.handleClick.bind(this, tab)}\n                                name={tab.name}\n                                isCurrent={props.currentTab === tab.id}\n                            />\n                        )\n                    }.bind(this)\n                )}\n            </SCTabList>\n        )\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/dataApi.js": "import React, {Component, component} from \"react\";\n\nconst axios = require('axios');\n\nlet instance = axios.create({\n    baseURL: 'localhost:3000/data.json',\n    timeout: 1000\n});\n\nexport default class dataApi extends Component {\n    state = {\n        data: []\n    };\n\n    componentDidMount() {\n        axios.get('http://localhost:3000/data.json')\n            //.then(json => console.log('this be the json: ', json))\n            .then(json => {\n                this.setState({\n                    data: json.data.starwars.characters\n                })\n            })\n            .catch(function (error) {\n                console.log(\"The Axios call returned this error: \" + error)\n            })\n    }\n    render() {\n        return this.props.children(this.state);\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconBb8.svg": "file too long",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconC3po.svg": "file too long",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconCharlie.png": "file too long",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconFett.svg": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg id='Fett' width='45' height='48' viewBox=\"0 0 45 74\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <g fill='#244356'>\n        <path\n            d='M3.22902,36.5 L1.00392,36.5 C0.451675,36.5 0.00392,36.052245 0.00392,35.5 L0.00392,13 C0.00392,12.447755 0.451675,12 1.00392,12 L5.41603,12 C5.968275,12 6.41603,12.447755 6.41603,13 C6.41603,13.552245 5.968275,14 5.41603,14 L2.00392,14 L2.00392,34.5 L3.22902,34.5 C3.781265,34.5 4.22902,34.947755 4.22902,35.5 C4.22902,36.052245 3.781265,36.5 3.22902,36.5 L3.22902,36.5 Z'\n            id='Shape'\n        />\n        <path\n            d='M3,14 C2.447755,14 2,13.552245 2,13 L2,1 C2,0.447755 2.447755,0 3,0 C3.552245,0 4,0.447755 4,1 L4,13 C4,13.552245 3.552245,14 3,14 L3,14 Z'\n            id='Shape'\n        />\n        <path\n            d='M39.4834,19.5 C38.931155,19.5 38.4834,19.052245 38.4834,18.5 C38.4834,9.408445 31.092775,2.01074 22.003925,2 C12.91506,2.01074 5.524435,9.408445 5.524435,18.5 C5.524435,19.052245 5.07668,19.5 4.524435,19.5 C3.97219,19.5 3.524435,19.052245 3.524435,18.5 C3.524435,8.312745 11.80129,0.022215 21.98342,0 L21.98342,0 L21.98342,0 L21.98342,0 L22.024435,0 C32.20655,0.022215 40.483405,8.312745 40.483405,18.5 C40.4834,19.052245 40.035645,19.5 39.4834,19.5 L39.4834,19.5 Z'\n            id='Shape'\n        />\n        <path\n            d='M26.50392,48 L17.50392,48 C17.326185,48 17.15138,47.952635 16.99806,47.862795 L2.49806,39.362795 C2.16896,39.169435 1.97804,38.805665 2.00685,38.425295 L3.50685,18.425295 C3.547865,17.87476 4.0215,17.46558 4.578625,17.50269 C5.129405,17.544195 5.54249,18.024175 5.50099,18.57471 L4.047865,37.95264 L17.775405,46 L26.235365,46 L40.1416,37.95215 L38.507325,18.583985 C38.46094,18.03369 38.86963,17.55005 39.419925,17.503665 C39.971195,17.45557 40.454105,17.866215 40.50049,18.41602 L42.18799,38.41602 C42.220215,38.80176 42.027345,39.17139 41.692385,39.365725 L27.0049,47.865725 C26.852555,47.953615 26.679705,48 26.50392,48 L26.50392,48 Z'\n            id='Shape'\n        />\n        <path\n            d='M39.362795,17.5 L4.64113,17.5 C4.088885,17.5 3.64113,17.052245 3.64113,16.5 C3.64113,15.947755 4.088885,15.5 4.64113,15.5 L39.362795,15.5 C39.91504,15.5 40.362795,15.947755 40.362795,16.5 C40.362795,17.052245 39.91504,17.5 39.362795,17.5 L39.362795,17.5 Z'\n            id='Shape'\n        />\n        <path\n            d='M26.5,48 C25.947755,48 25.5,47.552245 25.5,47 L25.5,26 C25.5,25.56836 25.779295,25.18506 26.189455,25.050295 C26.246585,25.03125 31.646,23.251955 35.53467,21.78589 L35.382325,20.5 L8.42775,20.5 L8.32619,21.774415 C12.227555,23.241945 17.75049,25.0293 17.809575,25.04834 C18.22217,25.18164 18.5,25.56592 18.5,26 L18.5,47 C18.5,47.552245 18.052245,48 17.5,48 C16.947755,48 16.5,47.552245 16.5,47 L16.5,26.725585 C15,26.15283 10.08301,24.60205 6.907715,23.375 C6.495115,23.215575 6.23732,22.803955 6.27199,22.362795 L6.506365,19.420655 C6.54787,18.90088 6.98244,18.5 7.503925,18.5 L36.270025,18.5 C36.776375,18.5 37.20313,18.87866 37.26319,19.38159 L37.614265,22.32373 C37.667975,22.777345 37.40577,23.210205 36.9795,23.375 C33.811035,24.59961 29,26.146975 27.5,26.72168 L27.5,47 C27.5,47.552245 27.052245,48 26.5,48 L26.5,48 Z'\n            id='Shape'\n        />\n        <path\n            d='M14.50392,46.2417 C13.951675,46.2417 13.50392,45.793945 13.50392,45.2417 L13.50392,42.5 C13.50392,35.575685 9.68605,29.285155 3.54054,26.08252 C3.050795,25.827635 2.860365,25.223635 3.115735,24.733885 C3.371105,24.243895 3.9756,24.054195 4.46437,24.30908 C11.27394,27.85742 15.50392,34.827635 15.50392,42.5 L15.50392,45.2417 C15.50392,45.793945 15.05617,46.2417 14.50392,46.2417 L14.50392,46.2417 Z'\n            id='Shape'\n        />\n        <path\n            d='M29.503905,46.26416 C28.951675,46.26416 28.50392,45.816405 28.50392,45.26416 L28.50392,42.5 C28.50392,34.933105 32.63086,28.265135 39.543455,24.663085 C40.03369,24.406735 40.637205,24.59863 40.89209,25.08789 C41.14746,25.577635 40.95703,26.18164 40.467285,26.436525 C34.228515,29.6875 30.503905,35.692385 30.503905,42.5 L30.503905,45.26416 C30.503905,45.816405 30.05615,46.26416 29.503905,46.26416 L29.503905,46.26416 Z'\n            id='Shape'\n        />\n        <path\n            d='M29.7959,11.79175 C29.510745,11.79175 29.227555,11.67041 29.0298,11.43506 L26.4048,8.31006 C26.04933,7.886965 26.104505,7.25635 26.52736,6.901125 C26.9507,6.546145 27.58107,6.60083 27.93605,7.02344 L30.561035,10.14844 C30.916505,10.571535 30.86133,11.20215 30.438475,11.557375 C30.250975,11.714845 30.02295,11.79175 29.7959,11.79175 L29.7959,11.79175 Z'\n            id='Shape'\n        />\n        <path\n            d='M25,13 C24.447755,13 24,12.552245 24,12 L24,9.5 C24,8.947755 24.447755,8.5 25,8.5 C25.552245,8.5 26,8.947755 26,9.5 L26,12 C26,12.552245 25.552245,13 25,13 L25,13 Z'\n            id='Shape'\n        />\n    </g>\n</svg>",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconFranklin.png": "file too long",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconLucy.png": "file too long",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconSnoopy.png": "file too long",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Icons/IconVader.svg": "file too long",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCContainer.js": "import React, {Component} from 'react'\nimport styled from \"styled-components\";\n\nconst StyledDiv = styled.div`\n  background-color: ${props => props.theme.colors.leftNavColor};\n  max-width: 80%;\n  height: 100vh;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  margin: 0 auto;\n`;\n\nexport default class SCContainer extends Component {\n    render() {\n        const {...props} = this.props;\n        return (\n            <StyledDiv\n                {...props}\n            />\n        )\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCContent.js": "import React, {Component} from 'react'\nimport styled from \"styled-components\";\n\nconst StyledDiv = styled.div`\n  background-color: ${props => props.theme.colors.rightPanelColor};\n  padding-top: 40px;\n  width: 100%;\n  \n`;\n\nexport default class SCContent extends Component {\n    render() {\n        const {...props} = this.props;\n        return (\n            <StyledDiv\n                {...props}\n            />\n        )\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCLeftNav.js": "import React, {Component} from 'react'\nimport styled from \"styled-components\";\n\nconst StyledDiv = styled.div`\n  border-left: 1px solid ${props => props.theme.colors.leftNavBorderColor};\n  border-right: 1px solid ${props => props.theme.colors.leftNavBorderColor};\n`;\n\nexport default class SCLeftNav extends Component {\n    render() {\n        const {...props} = this.props;\n        return (\n            <StyledDiv\n                {...props}\n            />\n        )\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCTabContent.js": "import React, {Component} from 'react'\nimport styled from \"styled-components\";\n\nconst StyledDiv = styled.div`\n    background-color: transparent;\n    margin: 0 auto;\n`;\n\nexport default class SCTabContent extends Component {\n    render() {\n        const {...props} = this.props;\n        return (\n            <StyledDiv\n                {...props}\n            />\n        )\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/LeftNavigation/LeftNavigation.actions.js": "export const SELECTION_CHANGED  = 'home/leftnav/selection-changed';\nexport const selectItem = (selectedItem) => {\n    return {\n        type: SELECTION_CHANGED,\n        selectedItem\n    }\n};",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/LeftNavigation/LeftNavigation.actions.test.js": "import { expect } from 'chai';\nimport * as actions from './LeftNavigation.actions';\nimport * as routes from \"../../../core/constants/routes\";\ndescribe('actions', () => {\n    it('should create a SELECTION_CHANGED action when calling selectItem', () => {\n        const selectedItem = {id: 2, route: routes.PEANUT, label: 'Peanuts'};\n        const expectedAction = {\n            type: actions.SELECTION_CHANGED,\n            selectedItem\n        };\n        expect(actions.selectItem(selectedItem)).to.eql(expectedAction);\n    });\n});\n\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/ThemeToggle/ThemeToggle.actions.js": "export const SELECTION_CHANGED  = 'home/theme/theme-changed';\nexport const selectTheme = (selectedTheme) => {\n    return {\n        type: SELECTION_CHANGED,\n        selectedTheme\n    }\n};",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/constants/routes.js": "export const STARWARS  = `starwars`;\nexport const PEANUTS  = `peanuts`;",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/index.js": "import { combineReducers } from 'redux';\nimport leftNavigationReducer from \"./LeftNavigation/LeftNavigation.reducer\";\nimport themeToggleReducer from \"./ThemeToggle/ThemeToggle.reducer\";\n\nconst rootReducer = combineReducers({\n    leftNavigationState: leftNavigationReducer,\n    themeState: themeToggleReducer\n});\n\nexport default rootReducer;\n\n\n",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/LeftNavigation/LeftNavigation.reducer.js": "import { SELECTION_CHANGED } from \"../../actions/LeftNavigation/LeftNavigation.actions\";\nimport * as routes from \"../../../core/constants/routes\";\n\n\nexport const INITIAL_STATE = {\n    selectedItem: undefined,\n    navItems: [\n        {id: 1, route: routes.STARWARS,   label: 'Star Wars'},\n        {id: 2, route: routes.PEANUTS,  label: 'Peanuts'}\n    ]\n};\n\nfunction leftNavigationReducer(state = INITIAL_STATE, action) {\n    switch(action.type) {\n\n        case SELECTION_CHANGED: {\n            return {\n                ...state,\n                selectedItem: action.selectedItem\n            }\n        }\n\n        default : return state;\n    }\n}\n\nexport default leftNavigationReducer",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/LeftNavigation/LeftNavigation.reducer.test.js": "import { expect } from 'chai';\nimport * as actions from '../../actions/LeftNavigation/LeftNavigation.actions';\nimport { INITIAL_STATE } from \"./LeftNavigation.reducer\";\nimport leftNavigationReducer from \"./LeftNavigation.reducer\";\nimport * as routes from \"../../../core/constants/routes\";\ndescribe('leftNavigationReducer', () => {\n    it('should return the initial state', () => {\n        expect(leftNavigationReducer(undefined, {})).to.eql(\n            INITIAL_STATE\n        )\n    });\n    it('should handle SELECTION_CHANGED', () => {\n        const selectedItem = {id: 2, route: routes.PEANUTS, label: 'Peanuts'};\n        expect(leftNavigationReducer(INITIAL_STATE, {\n            type: actions.SELECTION_CHANGED,\n            selectedItem\n        })).to.eql({\n            ...INITIAL_STATE,\n            selectedItem\n        })\n    });\n});",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/ThemeToggle/ThemeToggle.reducer.js": "import { SELECTION_CHANGED } from \"../../actions/ThemeToggle/ThemeToggle.actions\";\n\nexport const INITIAL_STATE = {\n    selectedTheme: undefined\n};\n\nfunction themeToggleReducer(state = INITIAL_STATE, action) {\n    switch(action.type) {\n\n        case SELECTION_CHANGED: {\n            return {\n                ...state,\n                selectedTheme: action.selectedTheme\n            }\n        }\n\n        default : return state;\n    }\n}\n\nexport default themeToggleReducer",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/store/index.js": "import { createStore } from 'redux';\nimport rootReducer from '../reducers/index';\nimport { composeWithDevTools } from 'redux-devtools-extension';\n\nconst store = createStore(\n    rootReducer,\n    composeWithDevTools()\n);\n\nexport default store;",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/utils/themeUtils.js": "import theme from \"../../theme\";\n\nexport const determineTheme = (themeName) => {\n    switch (themeName) {\n        case \"dark\":\n            return theme.darkTheme;\n        case \"light\":\n        default:\n            return theme.lightTheme;\n    }\n};\n\nexport const determineKey = (selectedTheme) => {\n    switch (selectedTheme) {\n        case \"dark\":\n            return 2;\n        case \"light\":\n        default:\n            return 1;\n    }\n};\n\nexport const determineValue = (selection) => {\n    switch (selection) {\n        case 1:\n            return \"light\";\n        case 2:\n            return \"dark\";\n        default:\n            return \"light\";\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/pages/PeanutsPage.js": "import React, { Component } from \"react\";\nimport PropTypes from 'prop-types'\nimport Tabs from \"../components/Tabs\";\nimport Characters from \"../components/Characters\";\nimport axios from \"axios\";\nimport SCTabContent from \"../components/layout/SCTabContent\";\nimport SCTitle from \"../components/SCTitle\";\n\nexport default class PeanutsPage extends Component {\n    // not totally required for this class\n    static propTypes = {\n        currentTab: PropTypes.number,\n        width: PropTypes.number,\n        tabText: PropTypes.string,\n        data: PropTypes.array\n    };\n\n    static defaultProps = {\n        currentTab: 1,\n        width: window.innerWidth,\n        tabText: '',\n        data: []\n    };\n\n    state = {\n        currentTab: this.props.currentTab || 1,\n        data: this.props.data\n    };\n\n    componentDidMount () {\n        axios.get('https://chrismathers.github.io/react16-example-app/data.json')\n            .then(res => {\n                this.setState({\n                    data: res.data.peanuts.characters\n                })\n            })\n            .catch(function (error) {\n                console.log(\"The Axios call returned this error: \" + error)\n            })\n    }\n\n    changeTab = tab => {\n        this.setState({ currentTab: tab.id })\n    };\n\n    render() {\n        const data = this.state.data;\n        return (\n            <div className='c_tabsSwitcher'>\n                <SCTitle>Peanuts</SCTitle>\n                <Tabs\n                    currentTab={this.state.currentTab}\n                    changeTab={this.changeTab}\n                    data={data}\n                />\n                <SCTabContent>\n                {!this.state.goMobile\n                    ? <Characters\n                        page={data}\n                        currentTab={this.state.currentTab}\n                    />\n                    : <span>\n                        {/*<IconCharlie />\n                        <IconFranklin />\n                        <IconLucy />\n                        <IconSnoopy />*/}\n                      </span>}\n                </SCTabContent>\n            </div>\n        );\n    }\n}",
+          "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/pages/StarWarsPage.js": "import React, { Component } from \"react\";\nimport PropTypes from 'prop-types'\nimport Tabs from \"../components/Tabs\";\nimport Characters from \"../components/Characters\";\nimport axios from \"axios\";\nimport SCTitle from \"../components/SCTitle\";\nimport SCTabContent from \"../components/layout/SCTabContent\";\n\nexport default class StarWarsPage extends Component {\n    // not totally required for this class\n    static propTypes = {\n        currentTab: PropTypes.number,\n        width: PropTypes.number,\n        goMobile: PropTypes.bool,\n        starwars: PropTypes.array,\n        data: PropTypes.array\n    };\n\n    static defaultProps = {\n        currentTab: 1,\n        width: window.innerWidth,\n        goMobile: false,\n        data: []\n    };\n\n    state = {\n        currentTab: this.props.currentTab || 1,\n        data: this.props.data\n    };\n\n    componentDidMount () {\n        axios.get('https://chrismathers.github.io/react16-example-app/data.json')\n            .then(res => {\n                this.setState({\n                    data: res.data.starwars.characters\n                })\n            })\n            .catch(function (error) {\n                console.log(\"The Axios call returned this error: \" + error)\n            })\n    }\n\n    changeTab = tab => {\n        this.setState({ currentTab: tab.id })\n    };\n\n    render() {\n        const data = this.state.data;\n        return (\n            <div className='c_tabsSwitcher'>\n                <SCTitle>Star Wars</SCTitle>\n                <Tabs\n                    currentTab={this.state.currentTab}\n                    changeTab={this.changeTab}\n                    data={data}\n                />\n                <SCTabContent>\n                {!this.state.goMobile\n                    ? <Characters\n                        page={data}\n                        currentTab={this.state.currentTab}\n                    />\n                    : <span>\n                        {/*<IconC3po />\n                        <IconVader />\n                        <IconBb8 />\n                        <IconFett />*/}\n                      </span>}\n                </SCTabContent>\n            </div>\n        );\n    }\n}"
+      }
+  },
+  "Classes, Functions, and Imports": {
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/App.js": {
+          "classes": [
+              "App"
+          ],
+          "functions": [
+              "mapStateToProps",
+              "mapDispatchToProps"
+          ],
+          "imports": [
+              "import React, { Component } from 'react';",
+              "import { BrowserRouter as Router, Route } from \"react-router-dom\";",
+              "import StarWarsPage from \"./pages/StarWarsPage\";",
+              "import PeanutsPage from \"./pages/PeanutsPage\";",
+              "import './App.css';",
+              "import SCLeftNavigation from \"./components/SCLeftNavigation\";",
+              "import * as routes from \"./core/constants/routes\";",
+              "import {determineTheme, determineValue} from \"./core/utils/themeUtils\";",
+              "import {connect} from \"react-redux\";",
+              "import SLThemeSelectorButton from \"./components/SCThemeSelectorButton\";",
+              "import SCContainer from \"./components/layout/SCContainer\";",
+              "import SCContent from \"./components/layout/SCContent\";",
+              "import SCLeftNav from \"./components/layout/SCLeftNav\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/App.test.js": {
+          "classes": [],
+          "functions": [],
+          "imports": [
+              "import React from 'react';",
+              "import ReactDOM from 'react-dom';",
+              "import App from './App';"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/index.js": {
+          "classes": [],
+          "functions": [],
+          "imports": [
+              "import React from 'react';",
+              "import ReactDOM from 'react-dom';",
+              "import { Provider } from 'react-redux';",
+              "import 'bootstrap/dist/css/bootstrap.css';",
+              "import './index.css';",
+              "import * as serviceWorker from './serviceWorker';",
+              "import store from \"./core/store\";",
+              "import App from './App';"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/serviceWorker.js": {
+          "classes": [],
+          "functions": [
+              "register",
+              "registerValidSW",
+              "checkValidServiceWorker",
+              "unregister"
+          ],
+          "imports": []
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Characters.js": {
+          "classes": [
+              "Characters",
+              "static"
+          ],
+          "functions": [],
+          "imports": [
+              "import PropTypes from 'prop-types';"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCLeftNavigation.js": {
+          "classes": [
+              "SCLeftNavigation"
+          ],
+          "functions": [
+              "onNavItemClick",
+              "mapStateToProps",
+              "mapDispatchToProps"
+          ],
+          "imports": [
+              "import React, {Component} from 'react';",
+              "import { withRouter } from 'react-router-dom';",
+              "import { connect } from 'react-redux';",
+              "import { compose } from \"recompose\";",
+              "import { selectItem } from \"../core/actions/LeftNavigation/LeftNavigation.actions\";",
+              "import SCNav, {SCNavItem} from \"./SCNav\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCNav.js": {
+          "classes": [
+              "SCNavItem",
+              "SCNav"
+          ],
+          "functions": [],
+          "imports": [
+              "import React, {Component} from 'react';",
+              "import styled from \"styled-components\";",
+              "import {Nav, NavItem} from 'react-bootstrap';"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCThemeSelectorButton.js": {
+          "classes": [
+              "SLThemeSelectorButton"
+          ],
+          "functions": [
+              "mapStateToProps",
+              "mapDispatchToProps"
+          ],
+          "imports": [
+              "import styled from 'styled-components';",
+              "import {compose} from \"recompose\";",
+              "import connect from \"react-redux/es/connect/connect\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/SCTitle.js": {
+          "classes": [
+              "SCTitle"
+          ],
+          "functions": [],
+          "imports": [
+              "import styled from \"styled-components\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Tab.js": {
+          "classes": [
+              "Tab"
+          ],
+          "functions": [],
+          "imports": []
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/Tabs.js": {
+          "classes": [
+              "Tabs"
+          ],
+          "functions": [],
+          "imports": [
+              "import PropTypes from 'prop-types';"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/dataApi.js": {
+          "classes": [
+              "dataApi"
+          ],
+          "functions": [],
+          "imports": [
+              "import React, {Component, component} from \"react\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCContainer.js": {
+          "classes": [
+              "SCContainer"
+          ],
+          "functions": [],
+          "imports": [
+              "import styled from \"styled-components\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCContent.js": {
+          "classes": [
+              "SCContent"
+          ],
+          "functions": [],
+          "imports": [
+              "import styled from \"styled-components\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCLeftNav.js": {
+          "classes": [
+              "SCLeftNav"
+          ],
+          "functions": [],
+          "imports": [
+              "import styled from \"styled-components\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/components/layout/SCTabContent.js": {
+          "classes": [
+              "SCTabContent"
+          ],
+          "functions": [],
+          "imports": [
+              "import styled from \"styled-components\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/LeftNavigation/LeftNavigation.actions.js": {
+          "classes": [],
+          "functions": [
+              "selectItem"
+          ],
+          "imports": []
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/LeftNavigation/LeftNavigation.actions.test.js": {
+          "classes": [],
+          "functions": [],
+          "imports": [
+              "import { expect } from 'chai';",
+              "import * as actions from './LeftNavigation.actions';",
+              "import * as routes from \"../../../core/constants/routes\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/actions/ThemeToggle/ThemeToggle.actions.js": {
+          "classes": [],
+          "functions": [
+              "selectTheme"
+          ],
+          "imports": []
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/index.js": {
+          "classes": [],
+          "functions": [],
+          "imports": [
+              "import { combineReducers } from 'redux';",
+              "import leftNavigationReducer from \"./LeftNavigation/LeftNavigation.reducer\";",
+              "import themeToggleReducer from \"./ThemeToggle/ThemeToggle.reducer\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/LeftNavigation/LeftNavigation.reducer.js": {
+          "classes": [],
+          "functions": [
+              "leftNavigationReducer"
+          ],
+          "imports": [
+              "import { SELECTION_CHANGED } from \"../../actions/LeftNavigation/LeftNavigation.actions\";",
+              "import * as routes from \"../../../core/constants/routes\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/LeftNavigation/LeftNavigation.reducer.test.js": {
+          "classes": [],
+          "functions": [],
+          "imports": [
+              "import { expect } from 'chai';",
+              "import * as actions from '../../actions/LeftNavigation/LeftNavigation.actions';",
+              "import { INITIAL_STATE } from \"./LeftNavigation.reducer\";",
+              "import leftNavigationReducer from \"./LeftNavigation.reducer\";",
+              "import * as routes from \"../../../core/constants/routes\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/reducers/ThemeToggle/ThemeToggle.reducer.js": {
+          "classes": [],
+          "functions": [
+              "themeToggleReducer"
+          ],
+          "imports": [
+              "import { SELECTION_CHANGED } from \"../../actions/ThemeToggle/ThemeToggle.actions\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/store/index.js": {
+          "classes": [],
+          "functions": [],
+          "imports": [
+              "import { createStore } from 'redux';",
+              "import rootReducer from '../reducers/index';",
+              "import { composeWithDevTools } from 'redux-devtools-extension';"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/core/utils/themeUtils.js": {
+          "classes": [],
+          "functions": [
+              "determineTheme",
+              "determineKey",
+              "determineValue"
+          ],
+          "imports": [
+              "import theme from \"../../theme\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/pages/PeanutsPage.js": {
+          "classes": [
+              "PeanutsPage",
+              "static"
+          ],
+          "functions": [],
+          "imports": [
+              "import React, { Component } from \"react\";",
+              "import Tabs from \"../components/Tabs\";",
+              "import Characters from \"../components/Characters\";",
+              "import axios from \"axios\";",
+              "import SCTabContent from \"../components/layout/SCTabContent\";",
+              "import SCTitle from \"../components/SCTitle\";"
+          ]
+      },
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/src/pages/StarWarsPage.js": {
+          "classes": [
+              "StarWarsPage",
+              "static"
+          ],
+          "functions": [],
+          "imports": [
+              "import React, { Component } from \"react\";",
+              "import Tabs from \"../components/Tabs\";",
+              "import Characters from \"../components/Characters\";",
+              "import axios from \"axios\";",
+              "import SCTitle from \"../components/SCTitle\";",
+              "import SCTabContent from \"../components/layout/SCTabContent\";"
+          ]
+      }
+  },
+  "Documentation and Comments": {
+      "/tmp/WYOGhvJdMpj2Jl7HQgKH/react16-example-app-master/react16-example-app-master/README.md": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\n\n## Folder Structure\n\nAfter creation, your project should look like this:\n\n```\nmy-app/\n  README.md\n  node_modules/\n  package.json\n  public/\n    index.html\n    favicon.ico\n  src/\n    App.css\n    App.js\n    App.test.js\n    index.css\n    index.js\n    logo.svg\n```\n\n\n## Add styled-components\n\nyarn add styled-components --dev\n\nyarn add react-app-rewired --dev\n\nyarn add react-app-rewire-styled-components --dev\n\n## Add axios\nyarn add axios\n\n## Add redux\nyarn add redux\nyarn add react-redux\nyarn add react-router-dom\nyarn add recompose\n\nyarn add react-boostrap\n\n\n## Add chai\nyarn add chai\n\n## Available Scripts\n\nIn the project directory, you can run:\n\n### `yarn start`\n\nRuns the app in the development mode.<br>\nOpen [http://localhost:3000](http://localhost:3000) to view it in the browser.\n\nThe page will reload if you make edits.<br>\nYou will also see any lint errors in the console.\n\n### `npm test`\n\nLaunches the test runner in the interactive watch mode.<br>\nSee the section about [running tests](#running-tests) for more information.\n\n### `npm run build`\n\nBuilds the app for production to the `build` folder.<br>\nIt correctly bundles React in production mode and optimizes the build for the best performance.\n\nThe build is minified and the filenames include the hashes.<br>\nYour app is ready to be deployed!\n\nSee the section about [deployment](#deployment) for more information.\n\n### `npm run eject`\n\n**Note: this is a one-way operation. Once you `eject`, you can\u2019t go back!**\n\nIf you aren\u2019t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.\n\nInstead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you\u2019re on your own.\n\nYou don\u2019t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn\u2019t feel obligated to use this feature. However we understand that this tool wouldn\u2019t be useful if you couldn\u2019t customize it when you are ready for it.\n"
+  }
+}
