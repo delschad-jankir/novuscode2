@@ -10,6 +10,7 @@ export interface NavItem {
   label?: string;
   description?: string;
   forceReload?: boolean; // Add this line
+  onClick?: (e: React.MouseEvent) => Promise<void>;
 }
 
 export interface NavItemWithChildren extends NavItem {

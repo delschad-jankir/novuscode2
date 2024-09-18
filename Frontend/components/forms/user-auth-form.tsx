@@ -1,93 +1,77 @@
+// components/pages/AuthPage.tsx
 'use client';
 
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/firebaseConfig';
-import { useRouter } from 'next/navigation';
-import FullScreenLoader from '../ui/fullScreenLoader';
-import { useUserData } from '@/context/UserDataContext';
+import UserLoginForm from '@/components/forms/user-login-form';
+import UserRegisterForm from '@/components/forms/user-register-form';
+import EmailVerification from './email-verification';
 
-const formSchema = z.object({
-  email: z.string().email({ message: 'Enter a valid email address' }),
-  password: z.string().min(6, { message: 'Password should be at least 6 characters long' }),
-});
+export default function AuthPage() {
+  const [isLogin, setIsLogin] = useState(true);
+  const [isRegister, setIsRegister] = useState(false);
+  const [isVerify, setIsVerify] = useState(false);
+  const [verificationEmail, setVerificationEmail] = useState<string>('');
 
-type LoginFormValue = z.infer<typeof formSchema>;
+  const switchToRegister = () => {
+    setIsLogin(false);
+    setIsRegister(true);
+    setIsVerify(false);
+  };
 
-export default function UserLoginForm() {
-  const [loading, setLoading] = useState(false);
-  const [showFullScreenLoader, setShowFullScreenLoader] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const form = useForm<LoginFormValue>({ resolver: zodResolver(formSchema) });
-  const router = useRouter();
-  const { setUser } = useUserData(); // Get setUser function from context
+  const switchToLogin = () => {
+    setIsLogin(true);
+    setIsRegister(false);
+    setIsVerify(false);
+  };
 
-  const onSubmit = async (data: LoginFormValue) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
-      console.log('User logged in:', userCredential.user);
-
-      // Save user data to context
-      setUser(userCredential.user);
-
-      setShowFullScreenLoader(true);
-
-      setTimeout(() => {
-        router.push('/dashboard');
-      }, 500);
-    } catch (error) {
-      console.error('Error logging in:', error);
-      setError('Login failed. Please check your credentials and try again.');
-    } finally {
-      setLoading(false);
-    }
+  const showVerificationMessage = (email: string) => {
+    setVerificationEmail(email);
+    setIsVerify(true);
+    setIsLogin(false);
+    setIsRegister(false);
   };
 
   return (
-    <>
-      {showFullScreenLoader && <FullScreenLoader />}
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-2">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="Enter your email" disabled={loading} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+    <div className="flex flex-col justify-center space-y-6 sm:w-[350px] mx-auto">
+      {/* Conditional rendering based on the state */}
+      {isVerify ? (
+        <EmailVerification email={verificationEmail} />
+      ) : (
+        <>
+          <div className="flex flex-col space-y-2 text-center">
+            <h1 className="text-2xl font-semibold tracking-tight">
+              {isLogin ? 'Login' : 'Register'}
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              {isLogin
+                ? 'Enter your credentials to log in to your account'
+                : 'Create an account to get started'}
+            </p>
+          </div>
+          
+          {isLogin && <UserLoginForm onSwitchToRegister={switchToRegister} />}
+          {isRegister && <UserRegisterForm onSwitchToLogin={switchToLogin} onShowVerification={showVerificationMessage} />}
+          
+          {/* Conditional text and button for switching between login and register */}
+          <p className="text-sm text-center text-muted-foreground">
+            {isLogin ? (
+              <>
+                Don't have an account?{' '}
+                <button onClick={switchToRegister} className="text-blue-500 hover:underline">
+                  Register
+                </button>
+              </>
+            ) : (
+              <>
+                Already have an account?{' '}
+                <button onClick={switchToLogin} className="text-blue-500 hover:underline">
+                  Login
+                </button>
+              </>
             )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input type="password" placeholder="Enter your password" disabled={loading} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button disabled={loading} className="ml-auto w-full" type="submit">
-            Login
-          </Button>
-        </form>
-        {error && <p className="text-red-500">{error}</p>}
-      </Form>
-    </>
+          </p>
+        </>
+      )}
+    </div>
   );
 }

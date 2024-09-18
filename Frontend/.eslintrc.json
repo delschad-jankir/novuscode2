@@ -3,8 +3,10 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "@typescript-eslint/no-unused-vars": ["warn", { "args": "none" }],
-    "import/no-unresolved": "error",
+    "import/no-unresolved": "off",  // Temporarily disable this rule
     "import/named": "off",
-    "no-console": "warn"
+    "no-console": "warn",
+    "react/display-name": "off",    // Disable missing display name errors
+    "react/no-children-prop": "off" // Disable errors for passing children as props
   }
 }

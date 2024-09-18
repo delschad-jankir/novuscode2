@@ -55,7 +55,7 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      'border-b transition-colors hover:bg-muted/50', // Removed checkbox-related styles
+      'border-b transition-colors hover:bg-muted/50',
       className
     )}
     {...props}
@@ -70,7 +70,7 @@ const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      'h-10 px-2 text-left align-middle font-medium text-muted-foreground', // Removed checkbox-related styles
+      'h-10 px-2 text-left align-middle font-medium text-muted-foreground',
       className
     )}
     {...props}
@@ -85,7 +85,7 @@ const TableCell = React.forwardRef<
   <td
     ref={ref}
     className={cn(
-      'p-2 align-middle', // Removed checkbox-related styles
+      'p-2 align-middle',
       className
     )}
     {...props}

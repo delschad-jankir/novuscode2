@@ -63,7 +63,7 @@ const QandABar: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:4000/chatInformation', {
+      const res = await fetch('https://novuscode-backend1-83223007958.us-central1.run.app/chatInformation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

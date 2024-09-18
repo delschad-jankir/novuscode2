@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Heading } from "@/components/ui/heading";
-import { X, Loader2, CheckCircle } from "lucide-react"; // For icons
+import { X, Loader2, CheckCircle } from "lucide-react";
 
 export const ProjectForm: React.FC = () => {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);

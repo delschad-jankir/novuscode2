@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes'; // Assuming you're using next-themes for theme management
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { theme } = useTheme(); // Get the current theme (dark or light)
+  const { theme } = useTheme();
 
   return (
     <div className="relative min-h-screen">

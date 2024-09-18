@@ -1,33 +1,26 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Editor } from '@monaco-editor/react';
+import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 import TreeView from './TreeView';
 import InputBar from '@/components/InputBar';
 import PageContainer from '@/components/layout/page-container';
-import { Sparkle } from 'lucide-react';
 import axios from 'axios';
 import { FileIcon, FolderIcon, DefaultIcon } from 'lucide-react';
-
 import { useProjectData } from '@/context/ProjectDataContext';
 import { useUserData } from '@/context/UserDataContext';
-
-interface FileContents {
-  [key: string]: string;
-}
+import { useChat } from '@/context/ChatContext';
 
 const CodeExplorer: React.FC = () => {
-  const [code, setCode] = useState<string>(
-    '// Select a file to view its content'
-  );
-  const [theme, setTheme] = useState<
-    'vs' | 'vs-dark' | 'hc-black' | 'hc-light'
-  >('vs');
+  const [code, setCode] = useState<string>('// Select a file to view its content');
+  const [theme, setTheme] = useState<'vs' | 'vs-dark' | 'hc-black' | 'hc-light'>('vs');
   const [filePath, setFilePath] = useState<string>('');
   const [language, setLanguage] = useState<string>('plaintext');
   const { projectData } = useProjectData();
   const { user } = useUserData();
+  const { selectedChat, setSelectedChat } = useChat();
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // Safely extract base URL from fileUrl
   const baseFileUrl = projectData?.fileUrl?.replace('.zip', '') ?? '';
 
   const handleFileClick = async (filePath: string) => {
@@ -37,40 +30,30 @@ const CodeExplorer: React.FC = () => {
 
     try {
       // Ensure the file path is correctly formatted
-      const cleanFilePath = filePath.startsWith('/')
-        ? filePath.slice(1)
-        : filePath;
+      const cleanFilePath = filePath.startsWith('/') ? filePath.slice(1) : filePath;
 
       // Construct the full API URL by combining baseFileUrl and cleanFilePath
       const apiUrl = `${baseFileUrl}/${encodeURIComponent(cleanFilePath)}`;
       console.log('API URL to send to backend:', apiUrl);
 
       // Send request to our backend server
-      const response = await axios.get(
-        'http://localhost:4000/api/fetch-file-content',
-        {
-          params: { url: apiUrl }
-        }
-      );
-
-      console.log('File content:', response.data);
+      const response = await axios.get('https://novuscode-backend1-83223007958.us-central1.run.app/api/fetch-file-content', {
+        params: { url: apiUrl },
+      });
       setCode(response.data);
 
       const fileExtension = cleanFilePath.split('.').pop()?.toLowerCase();
       setLanguage(getLanguageFromExtension(fileExtension));
     } catch (error) {
       console.error('An error occurred:', error);
-      setCode(
-        `// Error fetching file content: ${
-          error.response?.data?.error || error.message
-        }`
-      );
+      setCode(`// Error fetching file content: ${error.response?.data?.error || error.message}`);
     }
   };
 
   const getLanguageFromExtension = (extension: string | undefined): string => {
     switch (extension) {
       case 'js':
+      case "jsx":
         return 'javascript';
       case 'ts':
       case 'tsx':
@@ -114,9 +97,7 @@ const CodeExplorer: React.FC = () => {
   };
 
   useEffect(() => {
-    const darkModeMediaQuery = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    );
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
     const updateTheme = () => {
       setTheme(darkModeMediaQuery.matches ? 'vs-dark' : 'vs');
@@ -130,17 +111,13 @@ const CodeExplorer: React.FC = () => {
     };
   }, []);
 
-  const handleExplainClick = () => {
-    alert(`Explain the content of ${filePath}`);
-  };
-
   const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTheme(event.target.value as 'vs' | 'vs-dark' | 'hc-black' | 'hc-light');
   };
 
   const FileTreeItem: React.FC<{ name: string; isFolder: boolean }> = ({
     name,
-    isFolder
+    isFolder,
   }) => {
     const extension = name.split('.').pop()?.toLowerCase();
     let Icon = DefaultIcon;
@@ -181,76 +158,139 @@ const CodeExplorer: React.FC = () => {
     );
   };
 
+  const handleChatResponse = async (response: string) => {
+    if (selectedChat === null) {
+      // New Chat start
+      const saveChatResponse = await fetch('https://novuscode-backend1-83223007958.us-central1.run.app/saveChat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          uid: user.uid,
+          projectID: projectData.id,
+          title: 'Codebase Question',
+          messages: [
+            {
+              id: 'msg1',
+              content: 'Codebase Question',
+              role: 'user',
+              timestamp: new Date().toISOString(),
+            },
+            {
+              id: 'msg2',
+              content: response,
+              role: 'response',
+              timestamp: new Date().toISOString(),
+            },
+          ],
+        }),
+      });
+      const saveChatData = await saveChatResponse.json();
+      console.log('Save chat response:', saveChatData);
+      setSelectedChat(saveChatData);
+    } else {
+      // Update existing chat
+      await fetch('https://novuscode-backend1-83223007958.us-central1.run.app/updateChat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chatId: selectedChat.id,
+          newMessage: [
+            {
+              content: 'Codebase Question',
+              role: 'user',
+              timestamp: new Date().toISOString(),
+            },
+            {
+              content: response,
+              role: 'response',
+              timestamp: new Date().toISOString(),
+            },
+          ],
+        }),
+      });
+    }
+  };
+
+  const onLayoutChange = useCallback((sizes) => {
+    // Handle the layout change and ensure total width does not exceed starting width
+    const totalWidth = sizes.reduce((acc, size) => acc + size, 0);
+    if (totalWidth !== 100) {
+      // Adjust the sizes to ensure total width is 100
+      const adjustedSizes = sizes.map(size => (size / totalWidth) * 100);
+      // Update the layout or handle accordingly
+      // Example: setSizes(adjustedSizes);
+    }
+  }, []);
+
   return (
     <PageContainer scrollable>
-      <div className="flex gap-4 p-4">
-        {/* File Explorer Card */}
-        <div
-          className="flex w-full flex-shrink-0 flex-col rounded-lg bg-white p-4 shadow-lg dark:bg-black md:w-1/6"
-          style={{ height: 'calc(100vh - 120px)' }}
+      <div className="h-[calc(100vh-120px)] p-4">
+        <PanelGroup
+          direction="horizontal"
+          autoSaveId="code-explorer"
+          onLayout={onLayoutChange}
         >
-          <h2 className="mb-4 text-lg font-semibold md:text-xl">
-            File Explorer
-          </h2>
-          <div className="flex-1 overflow-y-auto">
-            <TreeView onFileClick={handleFileClick} renderItem={FileTreeItem} />
-          </div>
-        </div>
-
-        {/* Code Editor Card */}
-        <div className="relative w-full flex-1 rounded-lg bg-white p-4 shadow-lg dark:bg-black md:w-1/2">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold md:text-xl">Code Editor</h2>
-            <div className="flex items-center gap-2">
-              <button
-                className="flex items-center rounded-full border border-black bg-white px-4 py-2 text-xs font-bold text-black hover:bg-gray-100 focus:outline-none md:text-sm"
-                onClick={handleExplainClick}
-              >
-                <Sparkle className="mr-2 h-5 w-5" />
-                Explain
-              </button>
-              <select
-                value={theme}
-                onChange={handleThemeChange}
-                className="rounded border border-gray-300 p-2 text-sm"
-              >
-                <option value="vs">Light</option>
-                <option value="vs-dark">Dark</option>
-                <option value="hc-black">High Contrast Black</option>
-                <option value="hc-light">High Contrast Light</option>
-              </select>
+          <Panel defaultSize={20} minSize={10} maxSize={50} id="panel1">
+            <div className="h-full rounded-lg bg-white p-4 shadow-lg dark:bg-black">
+              <h2 className="mb-4 text-lg font-semibold md:text-xl">File Explorer</h2>
+              <div className="h-[calc(100%-2rem)] overflow-y-auto">
+                <TreeView onFileClick={handleFileClick} renderItem={FileTreeItem} />
+              </div>
             </div>
-          </div>
+          </Panel>
 
-          <div className="h-[400px] w-full rounded-b-lg border border-gray-300 dark:border-gray-700 md:h-[500px]">
-            <Editor
-              height="100%"
-              defaultLanguage="plaintext"
-              value={code}
-              onChange={(value) => setCode(value || '')}
-              theme={theme}
-              language={language}
-              options={{
-                minimap: { enabled: false },
-                fontSize: 14,
-                lineNumbers: 'on',
-                renderWhitespace: 'all',
-                tabSize: 2
-              }}
-            />
-          </div>
-        </div>
+          <PanelResizeHandle className="w-2 bg-gray-200 hover:bg-gray-300" />
 
-        {/* Chat Card */}
-        <div className="flex w-full flex-shrink-0 flex-col rounded-lg bg-white p-4 shadow-lg dark:bg-black md:w-1/4">
-          <h2 className="mb-4 text-lg font-semibold md:text-xl">Chat</h2>
-          <div className="mb-4 flex-grow overflow-y-auto">
-            {/* Chat messages would go here */}
-          </div>
-          <div className="mt-auto">
-            <InputBar />
-          </div>
-        </div>
+          <Panel defaultSize={50} minSize={20} maxSize={50} id="panel2">
+            <div className="h-full rounded-lg bg-white p-4 shadow-lg dark:bg-black">
+              <div className="mb-4 flex items-center justify-between">
+                <h2 className="text-lg font-semibold md:text-xl">Code Editor</h2>
+                <div className="flex items-center gap-2">
+                  <select
+                    value={theme}
+                    onChange={handleThemeChange}
+                    className="rounded border border-gray-300 p-2 text-sm"
+                  >
+                    <option value="vs">Light</option>
+                    <option value="vs-dark">Dark</option>
+                    <option value="hc-black">High Contrast Black</option>
+                    <option value="hc-light">High Contrast Light</option>
+                  </select>
+                </div>
+              </div>
+              <div className="h-[calc(100%-4rem)] w-full rounded-b-lg border border-gray-300 dark:border-gray-700">
+                <Editor
+                  height="100%"
+                  defaultLanguage="plaintext"
+                  value={code}
+                  onChange={(value) => setCode(value || '')}
+                  theme={theme}
+                  language={language}
+                  options={{
+                    minimap: { enabled: true },
+                    fontSize: 14,
+                    lineNumbers: 'on',
+                    renderWhitespace: 'all',
+                    tabSize: 2,
+                  }}
+                />
+              </div>
+            </div>
+          </Panel>
+
+          <PanelResizeHandle className="w-2 bg-gray-200 hover:bg-gray-300" />
+
+          <Panel defaultSize={30} minSize={10} maxSize={50} id="panel3">
+            <div className="h-full rounded-lg bg-white p-4 shadow-lg dark:bg-black">
+              <h2 className="text-lg font-semibold md:text-xl">Chat</h2>
+              <InputBar code={code} baseFileUrl={baseFileUrl} onChatResponse={handleChatResponse} />
+            </div>
+          </Panel>
+        </PanelGroup>
       </div>
     </PageContainer>
   );

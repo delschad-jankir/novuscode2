@@ -1,3 +1,5 @@
+// data-table.tsx
+
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -19,10 +21,10 @@ import {
 import { Input } from './input';
 import { Button } from './button';
 import { ScrollArea, ScrollBar } from './scroll-area';
-import { ProjectDataProvider, useProjectData } from '@/context/ProjectDataContext';
+import { useProjectData } from '@/context/ProjectDataContext';
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
+  columns: ColumnDef<TData, TValue>[]; 
   data: TData[];
   searchKey: string;
 }
@@ -43,7 +45,7 @@ export function DataTable<TData, TValue>({
 
   const handleProjectClick = (projectData: TData) => {
     const projectId = (projectData as any).id;
-    setProjectData (projectData);
+    setProjectData(projectData);
     router.push(`/projects/${projectId}/general`);
   };
 

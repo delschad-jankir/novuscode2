@@ -3,10 +3,12 @@
 import React, { useState, useEffect, KeyboardEvent } from 'react';
 import { useTheme } from 'next-themes';
 import { Send } from 'lucide-react';
-import { useForm, SubmitHandler } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+
+import 'highlight.js/styles/github.css';
+import hljs from 'highlight.js';
 
 import { useProjectData } from '@/context/ProjectDataContext';
 import { useUserData } from '@/context/UserDataContext';
@@ -17,30 +19,35 @@ interface Message {
   type: 'user' | 'response';
 }
 
-interface ChatBarFormValues {
-  message: string;
-}
-
 const ChatContent: React.FC<{ onMessageSent: () => void }> = ({ onMessageSent }) => {
   const { theme } = useTheme();
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
+  const [inputMessage, setInputMessage] = useState('');
+  const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
 
   const { user } = useUserData();
   const { projectData } = useProjectData();
-  const { fileUrl } = projectData;
+  const fileUrl = projectData?.fileUrl ?? null;
   const { selectedChat, setSelectedChat } = useChat();
 
-  // Reset selectedChat when the component mounts
+  if (!fileUrl) {
+    return <div>File URL is missing. Please provide a valid project data.</div>;
+  }
+  
+  useEffect(() => {
+    if (!projectData) {
+      // Trigger loading of project data, or show a loading indicator.
+    }
+  }, [projectData]);
+  
+
   useEffect(() => {
     setSelectedChat(null);
-
     return () => {
-      // Cleanup: reset selectedChat when the component unmounts
       setSelectedChat(null);
     };
   }, [setSelectedChat]);
-
 
   const prompts = [
     "How can I help you?",
@@ -51,8 +58,6 @@ const ChatContent: React.FC<{ onMessageSent: () => void }> = ({ onMessageSent })
     "What's a pirate's favorite programming language?",
   ];
 
-  const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentPromptIndex((prevIndex) => (prevIndex + 1) % prompts.length);
@@ -61,18 +66,9 @@ const ChatContent: React.FC<{ onMessageSent: () => void }> = ({ onMessageSent })
     return () => clearInterval(intervalId);
   }, []);
 
-  const form = useForm<ChatBarFormValues>({
-    defaultValues: {
-      message: ''
-    },
-    mode: 'onChange'
-  });
-
   useEffect(() => {
     console.log('selectedChat updated:', selectedChat);
   }, [selectedChat]);
-
-  const { register, handleSubmit, reset, setValue } = form;
 
   useEffect(() => {
     const messagesContainer = document.getElementById('messages-container');
@@ -91,33 +87,29 @@ const ChatContent: React.FC<{ onMessageSent: () => void }> = ({ onMessageSent })
     }
   }, [selectedChat]);
 
-  const onSubmit: SubmitHandler<ChatBarFormValues> = async (data) => {
-    if (data.message.trim() === '') return;
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (inputMessage.trim() === '') return;
     setLoading(true);
     onMessageSent();
   
-    console.log("onSubmit Start selectedChat:", selectedChat);
+    const currentMessage = inputMessage; // Store the current message
+    setInputMessage(''); // Clear the input immediately after submission
   
     try {
-      // Remove the last part of the URL after the last "/"
       const baseUrl = fileUrl.substring(0, fileUrl.lastIndexOf('/'));
-  
-      // Construct the URL for codebase_analysis.json
       const codebaseUrl = `${baseUrl}/codebase_analysis.json`;
-      console.log("Constructed URL:", codebaseUrl);
   
-      // Add user message to the UI immediately
-      setMessages(prevMessages => [...prevMessages, { text: data.message, type: 'user' }]);
+      setMessages(prevMessages => [...prevMessages, { text: currentMessage, type: 'user' }]);
   
-      // Call the new chatProject endpoint
-      const chatResponse = await fetch('http://localhost:4000/chatProject', {
+      const chatResponse = await fetch('https://novuscode-backend1-83223007958.us-central1.run.app/chatProject', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: data.message,
-          codebaseUrl: codebaseUrl,  // Pass the URL to the backend
+          message: currentMessage,
+          codebaseUrl: codebaseUrl,
           selectedChat: selectedChat ? selectedChat : null,
         }),
       });
@@ -129,12 +121,10 @@ const ChatContent: React.FC<{ onMessageSent: () => void }> = ({ onMessageSent })
       const responseData = await chatResponse.json();
       const aiResponse = responseData.response;
   
-      // Update messages with AI response
       setMessages(prevMessages => [...prevMessages, { text: aiResponse, type: 'response' }]);
   
       if (selectedChat === null) {
-        // New Chat start
-        const saveChatResponse = await fetch('http://localhost:4000/saveChat', {
+        const saveChatResponse = await fetch('https://novuscode-backend1-83223007958.us-central1.run.app/saveChat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -142,11 +132,11 @@ const ChatContent: React.FC<{ onMessageSent: () => void }> = ({ onMessageSent })
           body: JSON.stringify({
             uid: user.uid,
             projectID: projectData.id,
-            title: data.message,
+            title: currentMessage,
             messages: [
               {
                 "id": "msg1",
-                "content": data.message,
+                "content": currentMessage,
                 "role": "user",
                 "timestamp": new Date().toISOString()
               },
@@ -160,11 +150,9 @@ const ChatContent: React.FC<{ onMessageSent: () => void }> = ({ onMessageSent })
           }),
         });
         const saveChatData = await saveChatResponse.json();
-        console.log('Save chat response:', saveChatData);
         setSelectedChat(saveChatData);
       } else {
-        // Update existing chat
-        await fetch('http://localhost:4000/updateChat', {
+        await fetch('https://novuscode-backend1-83223007958.us-central1.run.app/updateChat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -173,7 +161,7 @@ const ChatContent: React.FC<{ onMessageSent: () => void }> = ({ onMessageSent })
             chatId: selectedChat.id,
             newMessage: [
               {
-                content: data.message,
+                content: currentMessage,
                 role: 'user',
                 timestamp: new Date().toISOString()
               },
@@ -194,87 +182,112 @@ const ChatContent: React.FC<{ onMessageSent: () => void }> = ({ onMessageSent })
       ]);
     } finally {
       setLoading(false);
-      reset();
     }
   };
-  
 
   const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
-      handleSubmit(onSubmit)();
+      handleSubmit(event as any);
     }
   };
 
   const handlePromptClick = (prompt: string) => {
-    setValue('message', prompt);
-    handleSubmit(onSubmit)();
+    setInputMessage(prompt);
+    handleSubmit({ preventDefault: () => {} } as any);
+  };
+
+  const highlightCode = (code: string, language: string) => {
+    const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+    return hljs.highlight(code, { language: validLanguage }).value;
   };
 
   return (
     <div className="flex flex-col h-full w-full max-w-[75%] mx-auto">
       <div id="messages-container" className="flex-grow overflow-y-auto overflow-x-hidden p-4">
-  {messages.length === 0 ? (
-    <div className="flex flex-col items-center justify-center h-full">
-      <h1 className="text-4xl font-bold mb-4">Hi Delschad</h1>
-      <AnimatePresence mode="wait">
-        <motion.p
-          key={currentPromptIndex}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
-          className="text-xl text-gray-600 cursor-pointer hover:text-blue-500 transition-colors"
-          onClick={() => handlePromptClick(prompts[currentPromptIndex])}
-        >
-          {prompts[currentPromptIndex]}
-        </motion.p>
-      </AnimatePresence>
-    </div>
-  ) : (
-    <div className="flex flex-col gap-2">
-      {messages.map((msg, index) => (
-        <div
-          key={index}
-          className={`p-3 rounded-lg max-w-full ${
-            msg.type === 'user'
-              ? 'bg-blue-500 text-white self-end'
-              : 'bg-gray-200 text-black self-start'
-          }`}
-          style={{ maxWidth: '100%' }} // Ensure no horizontal overflow
-        >
-          <ReactMarkdown 
-            children={msg.text}
-            remarkPlugins={[remarkGfm]} 
-          />
-        </div>
-      ))}
-      {loading && <p className="text-gray-500">Loading...</p>}
-    </div>
-  )}
-</div>
+        {messages.length === 0 ? (
+          <div className="flex flex-col items-center justify-center h-full">
+            <h1 className="text-4xl font-bold mb-4">Hi Delschad</h1>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={currentPromptIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="text-xl text-gray-600 cursor-pointer hover:text-blue-500 transition-colors"
+                onClick={() => handlePromptClick(prompts[currentPromptIndex])}
+              >
+                {prompts[currentPromptIndex]}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-2">
+            {messages.map((msg, index) => (
+              <div
+                key={index}
+                className={`p-3 rounded-lg max-w-full break-words overflow-hidden ${
+                  msg.type === 'user'
+                    ? 'bg-gray-200 text-black self-end'
+                    : 'bg-transparent text-black self-start'
+                }`}
+                style={{ maxWidth: '100%' }}
+              >
+                <ReactMarkdown 
+                  children={msg.text}
+                  remarkPlugins={[remarkGfm]} 
+                  components={{
+                    h1: ({node, ...props}) => <h1 className="mt-4 mb-2 text-xl font-semibold" {...props} />,
+                    h2: ({node, ...props}) => <h2 className="mt-4 mb-2 text-lg font-semibold" {...props} />,
+                    h3: ({node, ...props}) => <h3 className="mt-4 mb-2 text-base font-semibold" {...props} />,
+                    h4: ({node, ...props}) => <h4 className="mt-4 mb-2 text-sm font-semibold" {...props} />,
+                    h5: ({node, ...props}) => <h5 className="mt-4 mb-2 text-sm font-medium" {...props} />,
+                    h6: ({node, ...props}) => <h6 className="mt-4 mb-2 text-xs font-medium" {...props} />,
+                    code: ({node, inline, className, children, ...props}) => {
+                      const language = className?.replace(/language-/, '') || 'plaintext';
+                      if (inline) {
+                        return <code className={className} {...props}>{children}</code>;
+                      }
+                      return (
+                        <pre className="bg-gray-100 p-2 rounded">
+                          <code
+                            className={className}
+                            dangerouslySetInnerHTML={{ __html: highlightCode(String(children).trim(), language) }}
+                          />
+                        </pre>
+                      );
+                    },
+                    a: ({node, ...props}) => <a className="text-blue-500 underline" {...props} />,
+                    ul: ({node, ...props}) => <ul className="list-disc pl-5" {...props} />,
+                    ol: ({node, ...props}) => <ol className="list-decimal pl-5" {...props} />,
+                    p: ({node, ...props}) => <p className="my-2" {...props} />,
+                  }}
+                />
+              </div>
+            ))}
+            {loading && <div className="text-center mt-4">Loading...</div>}
+          </div>
+        )}
+      </div>
 
       <div className="flex-shrink-0 border-t bg-background p-4 flex justify-center">
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-[75%]">
+        <form onSubmit={handleSubmit} className="w-full max-w-[75%]">
           <div className="relative flex w-full mb-5">
             <textarea
-              {...register("message")}
-              className={`h-12 w-full rounded-md border px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 resize-none overflow-auto ${
-                theme === 'dark' ? 'bg-gray-800 text-white border-gray-700' : 'bg-white text-black border-gray-200'
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              className={`h-12 w-full rounded-md border px-3 py-2 text-sm shadow-sm resize-none transition-colors focus:border-blue-500 focus:ring-1 ${
+                theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'
               }`}
-              placeholder="Type your message..."
-              disabled={loading}
-              rows={1}
               onKeyDown={handleKeyDown}
+              placeholder="Type your message here..."
             />
             <button
               type="submit"
-              disabled={loading}
-              className={`absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center p-2 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300 ${
-                theme === 'dark' ? 'text-white' : 'text-black'
-              }`}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-blue-500"
             >
-              <Send size={20} />
+              <Send />
             </button>
           </div>
           <p className="text-xs text-gray-400 mt-3 text-center">This chatbot is connected to the full codebase and documents. Use with caution.</p>

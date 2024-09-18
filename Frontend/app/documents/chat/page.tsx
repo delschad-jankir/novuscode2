@@ -4,7 +4,7 @@
 
 import React, { useState } from 'react';
 import PageContainer from '@/components/layout/page-container';
-import ChatProject from '@/components/ChatProject';
+import ChatDocument from '@/components/ChatDocuments';
 
 const Chat = () => {
   const [showHeading, setShowHeading] = useState(true);
@@ -15,7 +15,7 @@ const Chat = () => {
         {showHeading && <h1 className="text-2xl font-bold mb-4">Chat</h1>}
         
         <div className="flex-grow flex overflow-hidden">
-          <ChatProject onMessageSent={() => setShowHeading(false)} />
+          <ChatDocument onMessageSent={() => setShowHeading(false)} />
         </div>
       </div>
     </PageContainer>

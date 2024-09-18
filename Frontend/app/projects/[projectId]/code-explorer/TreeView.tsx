@@ -13,7 +13,9 @@ import {
 import { TFiles } from './types';
 import convertJsonToTFiles from './convertJsonToTFiles';
 import { useProjectData } from '@/context/ProjectDataContext';
+import { TailSpin } from 'react-loader-spinner'; // Import TailSpin loader
 
+// Sort entries (directories and files) alphabetically, with directories first
 const sortEntries = (entries: TFiles[]): TFiles[] => {
   return entries.sort((a, b) => {
     if ((a.children && b.children) || (!a.children && !b.children)) {
@@ -23,25 +25,29 @@ const sortEntries = (entries: TFiles[]): TFiles[] => {
   });
 };
 
+// Get file icons based on the file type
 const getFileIcon = (type?: string) => {
+  const iconSize = 'text-lg'; // Set icon size using Tailwind classes
+
   switch (type) {
     case 'html':
-      return <FaHtml5 className="text-black dark:text-white" />;
+      return <FaHtml5 className={`${iconSize} text-black dark:text-white`} />;
     case 'css':
-      return <FaCss3Alt className="text-black dark:text-white" />;
+      return <FaCss3Alt className={`${iconSize} text-black dark:text-white`} />;
     case 'md':
-      return <FaMarkdown className="text-black dark:text-white" />;
+      return <FaMarkdown className={`${iconSize} text-black dark:text-white`} />;
     case 'js':
-      return <FaJsSquare className="text-black dark:text-white" />;
+      return <FaJsSquare className={`${iconSize} text-black dark:text-white`} />;
     case 'ts':
-      return <FaTypewriter className="text-black dark:text-white" />;
+      return <FaTypewriter className={`${iconSize} text-black dark:text-white`} />;
     case 'json':
-      return <FaJson className="text-black dark:text-white" />;
+      return <FaJson className={`${iconSize} text-black dark:text-white`} />;
     default:
-      return <FaFileAlt className="text-black dark:text-white" />;
+      return <FaFileAlt className={`${iconSize} text-black dark:text-white`} />;
   }
 };
 
+// Component to render each directory or file entry
 type EntryProps = {
   entry: TFiles;
   depth: number;
@@ -78,12 +84,12 @@ const Entry: React.FC<EntryProps> = ({
   return (
     <div className={`flex flex-col ${depth > 2 ? 'ml-2' : ''}`}>
       <div
-        className={`flex items-center ${
+        className={`flex items-center space-x-2 ${
           isSelected ? 'bg-gray-200 dark:bg-gray-800' : ''
         }`}
       >
         {isFolder ? (
-          <FaFolder className="text-black dark:text-white" />
+          <FaFolder className={`text-black dark:text-white text-lg`} />
         ) : (
           getFileIcon(entry.type)
         )}
@@ -120,6 +126,7 @@ const Entry: React.FC<EntryProps> = ({
   );
 };
 
+// Main TreeView component that renders the file explorer
 type TreeViewProps = {
   onFileClick: (fileName: string) => void;
 };
@@ -128,7 +135,8 @@ const TreeView: React.FC<TreeViewProps> = ({ onFileClick }) => {
   const [selectedFile, setSelectedFile] = useState<string>('');
   const [filesData, setFilesData] = useState<TFiles[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const {projectData} = useProjectData()
+  const { projectData } = useProjectData();
+  const [loading, setLoading] = useState(true); // Loading state
 
   const handleSelect = (filePath: string) => {
     setSelectedFile(filePath);
@@ -140,19 +148,24 @@ const TreeView: React.FC<TreeViewProps> = ({ onFileClick }) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true); // Set loading to true before fetching
       try {
         const response = await axios.get(
-          `http://localhost:4000/file/${projectData.id}/codebaseFileExplorer.json`
+          `https://novuscode-backend1-83223007958.us-central1.run.app/file/${projectData.id}/codebaseFileExplorer.json`
         );
         const convertedData = convertJsonToTFiles(response.data);
         setFilesData(sortEntries(convertedData));
       } catch (error) {
         console.log('Error fetching directory structure:', error);
+      } finally {
+        setLoading(false); // Set loading to false after fetching
       }
     };
 
-    fetchData();
-  }, []);
+    if (projectData.id) {
+      fetchData();
+    }
+  }, [projectData.id]);
 
   // Filter files based on the search query, recursively
   const filterFiles = (files: TFiles[], query: string): TFiles[] => {
@@ -177,6 +190,24 @@ const TreeView: React.FC<TreeViewProps> = ({ onFileClick }) => {
     return filtered;
   };
 
+  // Combined loading logic
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <TailSpin
+          visible={true}
+          height="50" // Smaller size
+          width="50"  // Smaller size
+          color="#000000" // Black color
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="scrollable-container p-4">
       <div className="mb-4">
@@ -189,7 +220,9 @@ const TreeView: React.FC<TreeViewProps> = ({ onFileClick }) => {
         />
       </div>
       {filesData.length === 0 ? (
-        <p>No files available</p>
+        <div className="flex justify-center items-center h-screen">
+          <p className="text-gray-600 dark:text-gray-300">No files available</p>
+        </div>
       ) : (
         filterFiles(filesData, searchQuery).map((entry) => (
           <Entry

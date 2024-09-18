@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 interface UserDataContextType {
-  user: any; // Adjust type according to your needs
+  user: any;
   setUser: (user: any) => void;
 }
 
@@ -11,15 +11,25 @@ const UserDataContext = createContext<UserDataContextType | undefined>(undefined
 
 export function UserDataProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<any>(() => {
-    const savedUser = localStorage.getItem('user');
-    return savedUser ? JSON.parse(savedUser) : null;
+    if (typeof window !== 'undefined') {
+      console.log('Attempting to retrieve user from localStorage...');
+      const savedUser = localStorage.getItem('user');
+      const userData = savedUser ? JSON.parse(savedUser) : null;
+      console.log('Retrieved user:', userData);
+      return userData;
+    }
+    return null;
   });
 
   useEffect(() => {
-    if (user !== null) {
-      localStorage.setItem('user', JSON.stringify(user));
-    } else {
-      localStorage.removeItem('user');
+    if (typeof window !== 'undefined') {
+      if (user !== null) {
+        console.log('Saving user to localStorage:', user);
+        localStorage.setItem('user', JSON.stringify(user));
+      } else {
+        console.log('Removing user from localStorage');
+        localStorage.removeItem('user');
+      }
     }
   }, [user]);
 

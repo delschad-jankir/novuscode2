@@ -1,4 +1,5 @@
 import { NavItem } from '@/types';
+import { logout } from '@/lib/auth';
 
 export type Project = {
   id: number;
@@ -35,6 +36,10 @@ export const navItems: NavItem[] = [
     title: 'Logout',
     href: '/',
     icon: 'login',
-    label: 'login'
+    label: 'login',
+    onClick: async (e) => {
+      e.preventDefault();
+      await logout();
+    }
   }
 ];

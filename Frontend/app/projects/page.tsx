@@ -6,10 +6,12 @@ import PageContainer from '@/components/layout/page-container';
 import { ProjectClient } from '@/components/tables/project-tables/client';
 import { firestore } from '@/firebaseConfig';
 import { Project } from '@/constants/data';
+import { useUserData } from '@/context/UserDataContext'; // Adjust the import path as needed
 
 export default function Page() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const { user } = useUserData(); // Access the user data from context
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -30,6 +32,11 @@ export default function Page() {
     fetchProjects();
   }, []);
 
+  useEffect(() => {
+    // Log the user data to the console whenever it changes
+    console.log('User data:', user);
+  }, [user]);
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -37,7 +44,6 @@ export default function Page() {
   return (
     <PageContainer>
       <div className="space-y-2">
-
         <ProjectClient data={projects} />
       </div>
     </PageContainer>

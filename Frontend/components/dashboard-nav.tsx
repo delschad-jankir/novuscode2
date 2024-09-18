@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Icons } from '@/components/icons';
 import { cn } from '@/lib/utils';
 import { NavItem } from '@/types';
@@ -25,11 +25,25 @@ export function DashboardNav({
   isMobileNav = false
 }: DashboardNavProps) {
   const path = usePathname();
+  const router = useRouter();
   const { isMinimized } = useSidebar();
   const { setSelectedChat } = useChat();
 
   const handleChatSelection = (item: NavItem) => {
     setSelectedChat(item);
+  };
+
+  const handleItemClick = async (item: NavItem, e: React.MouseEvent) => {
+    if (item.onClick) {
+      e.preventDefault();
+      await item.onClick(e);
+      if (item.href) {
+        router.push(item.href);
+      }
+    }
+    console.log('Item object:', item);
+    handleChatSelection(item);
+    if (setOpen) setOpen(false);
   };
 
   if (!items?.length) {
@@ -65,11 +79,7 @@ export function DashboardNav({
                         path === item.href ? 'bg-accent' : 'transparent',
                         item.disabled && 'cursor-not-allowed opacity-80'
                       )}
-                      onClick={() => {
-                        console.log('Item object:', item);
-                        handleChatSelection(item);
-                        if (setOpen) setOpen(false);
-                      }}
+                      onClick={(e) => handleItemClick(item, e)}
                     >
                       {Icon && <Icon className="ml-3 h-5 w-5 flex-none" />}
                       {isMobileNav || (!isMinimized && !isMobileNav) ? (
@@ -86,11 +96,7 @@ export function DashboardNav({
                         path === item.href ? 'bg-accent' : 'transparent',
                         item.disabled && 'cursor-not-allowed opacity-80'
                       )}
-                      onClick={() => {
-                        console.log('Item object:', item);
-                        handleChatSelection(item);
-                        if (setOpen) setOpen(false);
-                      }}
+                      onClick={(e) => handleItemClick(item, e)}
                     >
                       {Icon && <Icon className="ml-3 h-5 w-5 flex-none" />}
                       {isMobileNav || (!isMinimized && !isMobileNav) ? (

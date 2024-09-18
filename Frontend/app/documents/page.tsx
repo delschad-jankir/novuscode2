@@ -1,13 +1,13 @@
 'use client';
 
-// page.tsx
-
 import { firestore } from '@/firebaseConfig';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import PageContainer from '@/components/layout/page-container';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import documentsBackground from '../../public/documentsBackground.png';
-import { useRouter } from 'next/navigation'; // Import useRouter
+import { useRouter } from 'next/navigation';
+import DocumentModal from '@/components/ui/documentModal';
+import UploadDocumentModal from '@/components/ui/uploadDocumentModal';
 
 interface Document {
   id: string;
@@ -50,16 +50,19 @@ async function fetchDocumentContent(id: string): Promise<Document | null> {
 
 export default function Page() {
   const [documents, setDocuments] = useState<Document[]>([]);
-  const [selectedDocument, setSelectedDocument] = useState<Document | null>(
-    null
-  );
+  const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
 
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
 
-  useState(() => {
-    fetchDocuments().then(setDocuments);
+  useEffect(() => {
+    const fetchData = async () => {
+      const docs = await fetchDocuments();
+      setDocuments(docs);
+    };
+
+    fetchData();
   }, []);
 
   const handleCardClick = async (id: string) => {
@@ -67,6 +70,8 @@ export default function Page() {
     if (document) {
       setSelectedDocument(document);
       setIsModalOpen(true);
+    } else {
+      console.error('Document not found');
     }
   };
 
@@ -84,7 +89,7 @@ export default function Page() {
   };
 
   const startChatting = () => {
-    router.push('/documents/chat'); // Navigate to the new route
+    router.push('/documents/chat');
   };
 
   return (
@@ -102,7 +107,7 @@ export default function Page() {
               business-related data.
             </p>
             <button
-              onClick={startChatting} // Use the handler here
+              onClick={startChatting}
               className="rounded-lg bg-white px-4 py-2 text-black transition duration-300 hover:bg-black hover:text-white"
             >
               Start Chatting
@@ -128,7 +133,6 @@ export default function Page() {
               </p>
             </div>
           ))}
-          {/* Add Document Card */}
           <div
             onClick={openUploadModal}
             className="block max-w-sm cursor-pointer rounded-lg border border-dashed border-gray-400 bg-white p-6 shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -137,89 +141,51 @@ export default function Page() {
               Add Document
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              Click here to add a new document.
+              Upload new documents
             </p>
           </div>
         </div>
       </div>
 
-      {/* View Document Modal */}
-      {isModalOpen && selectedDocument && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="mx-auto max-w-lg rounded-lg bg-white p-6 dark:bg-gray-800">
-            <h2 className="mb-4 text-2xl font-bold">
-              {selectedDocument.title}
-            </h2>
-            <p className="mb-4 text-gray-700 dark:text-gray-300">
-              {selectedDocument.type}
-            </p>
-            <p className="mb-6 text-gray-600 dark:text-gray-400">
-              {selectedDocument.content}
-            </p>
-            <button
-              onClick={closeModal}
-              className="rounded-lg bg-red-500 px-4 py-2 text-white transition duration-300 hover:bg-red-600"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      <DocumentModal
+        isOpen={isModalOpen}
+        document={selectedDocument}
+        onClose={closeModal}
+      />
+      <UploadDocumentModal
+        isOpen={isUploadModalOpen}
+        onClose={closeUploadModal}
+      />
 
-      {/* Upload Document Modal */}
-      {isUploadModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="mx-auto max-w-3xl rounded-lg bg-white p-8 dark:bg-gray-800">
-            <h2 className="mb-6 text-3xl font-bold">Upload New Document</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="mb-2 block text-gray-700 dark:text-gray-300">
-                  Title
-                </label>
-                <input
-                  type="text"
-                  className="w-full rounded-lg border border-gray-300 p-3 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-                  placeholder="Enter document title"
-                />
-              </div>
-              <div>
-                <label className="mb-2 block text-gray-700 dark:text-gray-300">
-                  Description
-                </label>
-                <textarea
-                  className="w-full rounded-lg border border-gray-300 p-3 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-                  placeholder="Enter document description"
-                  rows={4}
-                ></textarea>
-              </div>
-              <div>
-                <label className="mb-2 block text-gray-700 dark:text-gray-300">
-                  Upload PDF
-                </label>
-                <input
-                  type="file"
-                  accept="application/pdf"
-                  className="w-full rounded-lg border border-gray-300 p-3 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-                />
-              </div>
-              <div className="flex justify-end space-x-4">
-                <button
-                  onClick={closeUploadModal}
-                  className="rounded-lg bg-red-500 px-4 py-2 text-white transition duration-300 hover:bg-red-600"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={() => alert('Upload functionality not implemented')}
-                  className="rounded-lg bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600"
-                >
-                  Upload
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Dialogflow Chat Widget */}
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `
+            <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+            <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+            <df-messenger
+              project-id="novacode-432817"
+              agent-id="94caaf31-830b-4407-b08b-358d916c6f06"
+              language-code="en"
+              max-query-length="-1">
+              <df-messenger-chat-bubble chat-title="testMedium1"></df-messenger-chat-bubble>
+            </df-messenger>
+            <style>
+              df-messenger {
+                z-index: 999;
+                position: fixed;
+                --df-messenger-font-color: #000;
+                --df-messenger-font-family: Google Sans;
+                --df-messenger-chat-background: #f3f6fc;
+                --df-messenger-message-user-background: #d3e3fd;
+                --df-messenger-message-bot-background: #fff;
+                bottom: 16px;
+                right: 16px;
+              }
+            </style>
+          `,
+        }}
+      />
     </PageContainer>
   );
 }

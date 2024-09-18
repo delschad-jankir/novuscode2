@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import PageContainer from '@/components/layout/page-container';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { TailSpin } from 'react-loader-spinner'; // Import TailSpin loader
 
 import { useProjectData } from '@/context/ProjectDataContext';
 
@@ -20,7 +21,7 @@ const ComponentsAndModulesPage = () => {
         const filename = 'components_and_modules.md';
 
         try {
-          const response = await fetch(`http://localhost:4000/file/${projectId}/${filename}`);
+          const response = await fetch(`https://novuscode-backend1-83223007958.us-central1.run.app/file/${projectId}/${filename}`);
           if (response.ok) {
             const content = await response.text();
             const serialized = await serialize(content);
@@ -40,16 +41,33 @@ const ComponentsAndModulesPage = () => {
     fetchFileContent();
   }, [projectData]);
 
-  if (!projectData) {
+  // Combined loading logic
+  if (loading || !projectData) {
     return (
       <PageContainer scrollable>
-        <p className="dark:text-gray-300">Loading Components and Modules...</p>
+        <div className="flex justify-center items-center h-screen">
+          <TailSpin
+            visible={true}
+            height="50" // Smaller size
+            width="50"  // Smaller size
+            color="#000000" // Black color
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        </div>
       </PageContainer>
     );
   }
 
-  if (loading) return <p className="dark:text-gray-300">Loading file content...</p>;
-  if (error) return <p className="text-red-500 dark:text-red-400">{error}</p>;
+  if (error) {
+    return (
+      <PageContainer scrollable>
+        <p className="text-red-500 dark:text-red-400">{error}</p>
+      </PageContainer>
+    );
+  }
 
   return (
     <PageContainer scrollable>

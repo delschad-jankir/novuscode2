@@ -1,16 +1,14 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { DashboardNav } from '../dashboard-nav';
 import { navItems } from '@/constants/data';
 import { cn } from '@/lib/utils';
-import { ChevronLeft, ArrowLeft, Plus } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import { useSidebar } from '@/hooks/useSidebar';
 import Link from 'next/link';
-
-import { Loader } from 'lucide-react';
-
+import { TailSpin } from 'react-loader-spinner';
 import { useProjectData } from '@/context/ProjectDataContext';
 import { useUserData } from '@/context/UserDataContext';
 
@@ -68,6 +66,7 @@ export default function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname() || '';
   const [chatNavItems, setChatNavItems] = useState([]);
   const [loading, setLoading] = useState(false); // New loading state
+  const [modalOpen, setModalOpen] = useState(false); // Track modal state
 
   const isProjectPage =
     pathname.startsWith('/projects/') && pathname !== '/projects/new';
@@ -82,11 +81,19 @@ export default function Sidebar({ className }: SidebarProps) {
   };
 
   useEffect(() => {
+    // Simulate modal state change, replace with actual modal state handling
+    const handleModalChange = () => {
+      // Update this based on actual modal logic
+      setModalOpen(true); // Example: set to true when modal opens
+    };
+
+    handleModalChange();
+
     if (isChatPage) {
       const fetchChatItems = async () => {
         setLoading(true); // Start loading
         try {
-          const response = await fetch('http://localhost:4000/retrieveChats', {
+          const response = await fetch('https://novuscode-backend1-83223007958.us-central1.run.app/retrieveChats', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -151,12 +158,22 @@ export default function Sidebar({ className }: SidebarProps) {
     return navItems;
   };
 
+  const router = useRouter();
+
+  const handleNavItemClick = async (item) => {
+    if (item.onClick) {
+      await item.onClick(new Event('click'));
+      router.push(item.href);
+    }
+  };
+
   return (
     <aside
       className={cn(
         'relative hidden h-screen flex-none border-r bg-card transition-[width] duration-500 md:block',
         !isMinimized ? 'w-72' : 'w-[72px]',
-        className
+        className,
+        modalOpen ? 'backdrop-blur-md bg-opacity-50' : '' // Apply backdrop styling based on modal state
       )}
     >
       <div className="hidden p-5 pt-10 lg:block">
@@ -182,8 +199,9 @@ export default function Sidebar({ className }: SidebarProps) {
       </div>
       <ChevronLeft
         className={cn(
-          'absolute -right-3 top-10 z-50 cursor-pointer rounded-full border bg-background text-3xl text-foreground',
-          isMinimized && 'rotate-180'
+          'absolute -right-3 top-10 cursor-pointer rounded-full border bg-background text-3xl text-foreground',
+          isMinimized && 'rotate-180',
+          modalOpen ? 'text-gray-500' : '' // Adjust chevron color based on modal state
         )}
         onClick={handleToggle}
       />
@@ -197,11 +215,19 @@ export default function Sidebar({ className }: SidebarProps) {
           <div className="mt-4 space-y-1">
             {loading ? (
               <div className="flex h-full items-center justify-center">
-                <Loader className="h-8 w-8 animate-spin text-foreground" />{' '}
-                {/* Loading animation */}
+                <TailSpin
+                  visible={true}
+                  height="40"
+                  width="40"
+                  color="#000000" // Black color
+                  ariaLabel="tail-spin-loading"
+                  radius="1"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                />
               </div>
             ) : (
-              <DashboardNav items={getNavItems()} />
+              <DashboardNav items={getNavItems()} onItemClick={handleNavItemClick} />
             )}
           </div>
         </div>
