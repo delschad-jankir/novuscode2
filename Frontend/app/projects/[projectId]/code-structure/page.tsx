@@ -5,7 +5,6 @@ import PageContainer from '@/components/layout/page-container';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { TailSpin } from 'react-loader-spinner'; // Import TailSpin loader
-
 import { useProjectData } from '@/context/ProjectDataContext';
 
 const CodeStructurePage = () => {
@@ -45,25 +44,39 @@ const CodeStructurePage = () => {
     }
   }, [projectData]);
 
-  // Combined loading logic
+  // Combined loading and error logic
   if (loading || !projectData) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <TailSpin
-          visible={true}
-          height="50" // Smaller size
-          width="50"  // Smaller size
-          color="#000000" // Black color
-          ariaLabel="tail-spin-loading"
-          radius="1"
-          wrapperStyle={{}}
-          wrapperClass=""
-        />
-      </div>
+      <PageContainer scrollable>
+        <div className="flex justify-center items-center h-screen">
+          <TailSpin
+            visible={true}
+            height="50" // Smaller size
+            width="50"  // Smaller size
+            color="#000000" // Black color
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        </div>
+      </PageContainer>
     );
   }
 
-  if (error) return <p className="text-red-500 dark:text-red-400">{error}</p>;
+  if (error) {
+    return (
+      <PageContainer scrollable>
+        <div className="flex flex-col justify-center items-center h-screen text-center">
+          <h1 className="text-3xl font-bold mb-4">Hold tight</h1>
+          <p className="text-lg mb-4">
+            We are currently creating the file for you. This can take up to 5 minutes.
+          </p>
+          <div className="text-2xl animate-pulse">...</div>
+        </div>
+      </PageContainer>
+    );
+  }
 
   return (
     <PageContainer scrollable>

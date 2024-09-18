@@ -1,49 +1,55 @@
-'use client';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { useSession } from 'next-auth/react';
 
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  company?: string; // Adjust field name
+}
 
 interface UserDataContextType {
-  user: any;
-  setUser: (user: any) => void;
+  user: User | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
 
 const UserDataContext = createContext<UserDataContextType | undefined>(undefined);
 
-export function UserDataProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<any>(() => {
-    if (typeof window !== 'undefined') {
-      console.log('Attempting to retrieve user from localStorage...');
-      const savedUser = localStorage.getItem('user');
-      const userData = savedUser ? JSON.parse(savedUser) : null;
-      console.log('Retrieved user:', userData);
-      return userData;
-    }
-    return null;
-  });
+export const UserDataProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const { data: session } = useSession(); // Fetch session data from NextAuth.js
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      if (user !== null) {
-        console.log('Saving user to localStorage:', user);
-        localStorage.setItem('user', JSON.stringify(user));
-      } else {
-        console.log('Removing user from localStorage');
-        localStorage.removeItem('user');
-      }
+    if (session) {
+      // Assume session.user contains the user data
+      console.log('Session data:', session);
+      
+      // Map session user object to your User type if necessary
+      const userData: User = {
+        id: session.user?.id || '',
+        email: session.user?.email || '',
+        name: session.user?.name || '',
+        company: session.user?.company || '', // Adjust according to your session structure
+      };
+
+      console.log('User data:', userData);
+      setUser(userData);
+    } else {
+      setUser(null); // Clear user data if no session
     }
-  }, [user]);
+  }, [session]);
 
   return (
     <UserDataContext.Provider value={{ user, setUser }}>
       {children}
     </UserDataContext.Provider>
   );
-}
+};
 
-export function useUserData() {
+export const useUserData = () => {
   const context = useContext(UserDataContext);
   if (context === undefined) {
     throw new Error('useUserData must be used within a UserDataProvider');
   }
   return context;
-}
+};

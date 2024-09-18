@@ -13,6 +13,10 @@ export interface NavItem {
   onClick?: (e: React.MouseEvent) => Promise<void>;
 }
 
+export interface Prompts {
+  prompt: string;
+}
+
 export interface NavItemWithChildren extends NavItem {
   items: NavItemWithChildren[];
 }

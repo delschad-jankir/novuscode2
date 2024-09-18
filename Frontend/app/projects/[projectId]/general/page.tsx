@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react';
 import PageContainer from '@/components/layout/page-container';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import { TailSpin } from 'react-loader-spinner'; // Import TailSpin loader
-
+import { TailSpin } from 'react-loader-spinner';
 import { useProjectData } from '@/context/ProjectDataContext';
 
 const GeneralInformationPage = () => {
@@ -40,13 +39,14 @@ const GeneralInformationPage = () => {
         } finally {
           setLoading(false);
         }
+      } else {
+        setLoading(true);
       }
     };
 
     fetchFileContent();
   }, [projectData]);
 
-  // Combined loading logic
   if (loading || !projectData) {
     return (
       <PageContainer scrollable>
@@ -69,14 +69,20 @@ const GeneralInformationPage = () => {
   if (error) {
     return (
       <PageContainer scrollable>
-        <p className="text-red-500 dark:text-red-400">{error}</p>
+        <div className="flex flex-col justify-center items-center h-screen text-center">
+          <h1 className="text-3xl font-bold mb-4">Hold tight</h1>
+          <p className="text-lg mb-4">
+            We are currently creating the file for you. This can take up to 5 minutes.
+          </p>
+          <div className="text-2xl animate-pulse">...</div>
+        </div>
       </PageContainer>
     );
   }
 
   return (
     <PageContainer scrollable>
-      {serializedContent && (
+      {serializedContent ? (
         <div
           className="prose prose-sm 
                         max-w-none 
@@ -92,6 +98,8 @@ const GeneralInformationPage = () => {
         >
           <MDXRemote {...serializedContent} />
         </div>
+      ) : (
+        <p>No content available</p>
       )}
     </PageContainer>
   );

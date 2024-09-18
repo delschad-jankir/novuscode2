@@ -1,30 +1,33 @@
-"use client";
+'use client';
 
-import { useState, useCallback } from "react";
-import { useDropzone } from "react-dropzone";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Heading } from "@/components/ui/heading";
-import { X, Loader2, CheckCircle } from "lucide-react";
+import { useState, useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Heading } from '@/components/ui/heading';
+import { X, Loader2, CheckCircle } from 'lucide-react';
+import { useUserData } from '@/context/UserDataContext';
 
 export const ProjectForm: React.FC = () => {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
-  const [githubUrl, setGithubUrl] = useState<string>("");
+  const [githubUrl, setGithubUrl] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
-  const [name, setName] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [organization, setOrganization] = useState<string>("");
+  const [name, setName] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false); // Loading state
   const [success, setSuccess] = useState<boolean>(false); // Success state
 
+  // Access the user data from context
+  const { user } = useUserData();
+
   const onDrop = useCallback((acceptedFiles: File[], fileRejections: any[]) => {
     if (fileRejections.length > 0) {
-      setError("Only ZIP files are allowed");
+      setError('Only ZIP files are allowed');
     } else {
       setError(null);
       setUploadedFiles(acceptedFiles);
-      setGithubUrl("");
+      setGithubUrl('');
     }
   }, []);
 
@@ -35,7 +38,7 @@ export const ProjectForm: React.FC = () => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: { "application/zip": [".zip"] },
+    accept: { 'application/zip': ['.zip'] },
     multiple: false,
   });
 
@@ -50,39 +53,39 @@ export const ProjectForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true); // Set loading to true when uploading starts
-    const apiUrl = "http://localhost:4000";
+    const apiUrl = 'http://localhost:8080';
 
     try {
       let response;
       if (githubUrl) {
-        console.log("Attempting to upload GitHub project...");
+        console.log('Attempting to upload GitHub project...');
         response = await fetch(`${apiUrl}/uploadGithub`, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ githubUrl, name, description, organization }),
+          body: JSON.stringify({ githubUrl, name, description, company: user?.company || 'Unknown' }),
         });
       } else if (uploadedFiles.length > 0) {
-        console.log("Attempting to upload local file...");
+        console.log('Attempting to upload local file...');
         const formData = new FormData();
-        formData.append("file", uploadedFiles[0]);
-        formData.append("name", name);
-        formData.append("description", description);
-        formData.append("organization", organization);
+        formData.append('file', uploadedFiles[0]);
+        formData.append('name', name);
+        formData.append('description', description);
+        formData.append('company', user?.company || 'Unknown');
 
         response = await fetch(`${apiUrl}/uploadLocal`, {
-          method: "POST",
+          method: 'POST',
           body: formData,
         });
       } else {
-        setError("Please either enter a GitHub URL or upload a file");
+        setError('Please either enter a GitHub URL or upload a file');
         setLoading(false);
         return;
       }
 
       const responseText = await response.text();
-      console.log("Response text:", responseText);
+      console.log('Response text:', responseText);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}, message: ${responseText}`);
@@ -92,7 +95,7 @@ export const ProjectForm: React.FC = () => {
       setSuccess(true);
       setLoading(false);
     } catch (error) {
-      console.error("Error uploading:", error);
+      console.error('Error uploading:', error);
       setError(`Failed to upload: ${error instanceof Error ? error.message : String(error)}`);
       setLoading(false);
     }
@@ -123,7 +126,7 @@ export const ProjectForm: React.FC = () => {
         </div>
       )}
 
-      <div className={`${loading ? "blur-sm" : ""}`}>
+      <div className={`${loading ? 'blur-sm' : ''}`}>
         <div className="flex items-center justify-between">
           <Heading title="Create project" description="Upload either a ZIP folder or enter a GitHub repo, but not both." />
         </div>
@@ -135,8 +138,8 @@ export const ProjectForm: React.FC = () => {
             <div
               {...getRootProps()}
               className={`mt-2 flex items-center justify-center rounded-lg border-2 border-dashed p-4 ${
-                isDragActive ? "border-blue-400" : "border-gray-300"
-              } ${githubUrl ? "pointer-events-none opacity-50" : ""}`}
+                isDragActive ? 'border-blue-400' : 'border-gray-300'
+              } ${githubUrl ? 'pointer-events-none opacity-50' : ''}`}
             >
               <input {...getInputProps()} disabled={!!githubUrl} />
               {isDragActive ? <p>Drop the ZIP file here...</p> : <p>Drag and drop a ZIP folder, or click to select files</p>}
@@ -169,8 +172,8 @@ export const ProjectForm: React.FC = () => {
               disabled={uploadedFiles.length > 0}
             />
           </div>
-          {/* Name, Description, Organization Section */}
-          <div className="gap-8 md:grid md:grid-cols-3">
+          {/* Name and Description Section */}
+          <div className="gap-8 md:grid md:grid-cols-2">
             <div>
               <label className="block text-sm font-medium text-gray-700">Name</label>
               <Input placeholder="Project name" value={name} onChange={(e) => setName(e.target.value)} />
@@ -178,10 +181,6 @@ export const ProjectForm: React.FC = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700">Description</label>
               <Input placeholder="Project description" value={description} onChange={(e) => setDescription(e.target.value)} />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Organization</label>
-              <Input placeholder="Project organization" value={organization} onChange={(e) => setOrganization(e.target.value)} />
             </div>
           </div>
           {/* Submit Button */}

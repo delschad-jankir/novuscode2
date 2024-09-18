@@ -47,22 +47,22 @@ const BuildPage = () => {
   if (loading || !projectData) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <TailSpin
-          visible={true}
-          height="50"
-          width="50"
-          color="#000000"
-          ariaLabel="tail-spin-loading"
-          radius="1"
-          wrapperStyle={{}}
-          wrapperClass=""
-        />
       </div>
     );
   }
 
   if (error) {
-    return <p className="text-red-500 dark:text-red-400">{error}</p>;
+    return (
+      <div className="flex flex-col justify-center items-center h-screen text-center">
+        <h1 className="text-3xl font-bold mb-4">Hold tight</h1>
+        <p className="text-lg mb-4">
+          We are currently creating the file for you. This can take up to 5 minutes.
+        </p>
+        <div className="text-2xl animate-pulse">
+          ...
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -82,7 +82,7 @@ const BuildPage = () => {
           <MDXRemote {...serializedContent} />
         </div>
       ) : (
-        <p>No content available</p> // Ensure consistent fallback content
+        <p>No content available</p>
       )}
     </PageContainer>
   );

@@ -91,7 +91,7 @@ export default function Sidebar({ className }: SidebarProps) {
 
     if (isChatPage) {
       const fetchChatItems = async () => {
-        setLoading(true); // Start loading
+        setLoading(true);
         try {
           const response = await fetch('https://novuscode-backend1-83223007958.us-central1.run.app/retrieveChats', {
             method: 'POST',
@@ -116,34 +116,51 @@ export default function Sidebar({ className }: SidebarProps) {
               href: `/projects/${projectId}/general`,
               icon: 'ArrowLeft',
               label: 'Back to Project',
-              forceReload: true // Ensure a full page reload
+              forceReload: true
             },
             {
               title: 'New Chat',
               href: `/projects/${projectId}/chat`,
               icon: 'Plus',
               label: 'New Chat',
-              forceReload: true // Ensure a full page reload
+              forceReload: true
             },
             ...data.map((chat) => ({
-              ...chat, // Spread all key-value pairs from chat data
-              href: chat.href || '#', // Ensure href is defined
-              label: chat.title || 'No Title', // Provide a fallback if title is missing
-              forceReload: chat.forceReload || false // Default to false if not provided
+              ...chat,
+              href: chat.href || '#',
+              label: chat.title || 'No Title',
+              forceReload: chat.forceReload || false
             }))
           ];
 
           setChatNavItems(sortedChatItems);
         } catch (error) {
           console.error('Error fetching chat items:', error);
+          // Set chat items with error state, but keep "Back to Project" and "New Chat"
+          setChatNavItems([
+            {
+              title: 'Back to Project',
+              href: `/projects/${projectId}/general`,
+              icon: 'ArrowLeft',
+              label: 'Back to Project',
+              forceReload: true
+            },
+            {
+              title: 'New Chat',
+              href: `/projects/${projectId}/chat`,
+              icon: 'Plus',
+              label: 'New Chat',
+              forceReload: true
+            }
+          ]);
         } finally {
-          setLoading(false); // End loading
+          setLoading(false);
         }
       };
 
       fetchChatItems();
     }
-  }, [isChatPage, user, projectData]);
+  }, [isChatPage, user, projectData, projectId]);
 
   const projectNavItems = baseProjectNavItems.map((item) => ({
     ...item,
@@ -219,7 +236,7 @@ export default function Sidebar({ className }: SidebarProps) {
                   visible={true}
                   height="40"
                   width="40"
-                  color="#000000" // Black color
+                  color="#000000"
                   ariaLabel="tail-spin-loading"
                   radius="1"
                   wrapperStyle={{}}
