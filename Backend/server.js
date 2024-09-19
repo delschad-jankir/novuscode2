@@ -74,7 +74,7 @@ const chat = generativeModel.startChat({});
 // Configure multer with increased file size limit (100 MB)
 const upload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 100 * 1024 * 1024 } // 100 MB limit
+  limits: { fileSize: 100 * 2048 * 2048 } // 100 MB limit
 });
 
 app.use(
@@ -124,7 +124,7 @@ const downloadFile = async (url) => {
 ////////////////////////////////////////////// ENDPOINTS //////////////////////////////////////////////
 app.post('/uploadGithub', async (req, res) => {
   try {
-    const { githubUrl, name, description, organization } = req.body;
+    const { githubUrl, name, description, company } = req.body;
 
     if (!githubUrl) {
       console.log('GitHub URL is missing in request body');
@@ -135,7 +135,7 @@ app.post('/uploadGithub', async (req, res) => {
       githubUrl,
       name,
       description,
-      organization
+      company
     });
 
     // Directly use the provided GitHub URL
@@ -154,7 +154,7 @@ app.post('/uploadGithub', async (req, res) => {
     const docRef = await db.collection('projects').add({
       name,
       description,
-      organization,
+      company,
       createdAt: admin.firestore.FieldValue.serverTimestamp()
     });
 
@@ -214,18 +214,16 @@ app.post('/uploadLocal', upload.single('file'), async (req, res) => {
     }
 
     // Extract metadata from the request body
-    const { name, description, organization } = req.body;
+    const { name, description, company } = req.body;
 
-    // Check if organization is undefined and handle it (e.g., set to an empty string)
-    if (!organization) {
-      organization = "organization"; // Or handle it differently
-    }
+    // Check if company is undefined and handle it (e.g., set to an empty string)
+    const companyName = company || "Unknown"; // Or handle it differently
 
     // Add metadata to Firestore
     const docRef = await db.collection('projects').add({
       name,
       description,
-      organization,
+      company: companyName,
       createdAt: admin.firestore.FieldValue.serverTimestamp()
     });
 
@@ -271,6 +269,134 @@ app.post('/uploadLocal', upload.single('file'), async (req, res) => {
     return res
       .status(500)
       .json({ message: 'Unexpected error occurred.', error: error.message });
+  }
+});
+
+app.post('/recreateProject/:id', upload.single('file'), async (req, res) => {
+  const { id } = req.params; // Extract the project ID from the URL
+  const { name, description, company, githubUrl } = req.body;
+
+  try {
+    // Delete the existing project
+    const docRef = db.collection('projects').doc(id);
+    const doc = await docRef.get();
+
+    if (!doc.exists) {
+      return res.status(404).json({ message: `Project with ID ${id} not found.` });
+    }
+
+    await docRef.delete(); // Delete the existing document
+
+    // Create a new project under the same ID
+    await docRef.set({
+      name,
+      description,
+      company,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    // Handle file or GitHub URL
+    if (req.file) {
+      // Upload new file to Google Cloud Storage
+      const filePath = `${id}/${req.file.originalname}`;
+      const blob = bucket.file(filePath);
+      const blobStream = blob.createWriteStream();
+
+      blobStream.on('error', (err) => {
+        console.error('Error during file upload:', err);
+        return res.status(500).json({ message: 'Error uploading file.', error: err.message });
+      });
+
+      blobStream.on('finish', async () => {
+        const publicUrl = `https://storage.googleapis.com/${bucket.name}/${filePath}`;
+
+        // Update Firestore with file URL
+        await docRef.update({ fileUrl: publicUrl });
+        return res.status(200).json({
+          message: 'Project recreated successfully with new file.',
+          url: publicUrl,
+          projectId: id,
+        });
+      });
+
+      blobStream.end(req.file.buffer);
+    } else if (githubUrl) {
+      // Handle GitHub URL (if provided)
+      await docRef.update({ githubUrl });
+      return res.status(200).json({
+        message: 'Project recreated successfully with GitHub URL.',
+        projectId: id,
+      });
+    } else {
+      // Just metadata update without any file
+      return res.status(200).json({
+        message: 'Project recreated successfully.',
+        projectId: id,
+      });
+    }
+  } catch (error) {
+    console.error('Error during project recreation:', error);
+    return res.status(500).json({
+      message: 'Unexpected error occurred during project recreation.',
+      error: error.message,
+    });
+  }
+});
+
+app.put('/updateMetadata/:id', async (req, res) => {
+  const { id } = req.params;
+  const { name, description, company } = req.body;
+
+  try {
+    const docRef = db.collection('projects').doc(id);
+    const doc = await docRef.get();
+
+    if (!doc.exists) {
+      return res.status(404).json({ message: `Project with ID ${id} not found.` });
+    }
+
+    // Update the metadata
+    await docRef.update({
+      name: name || doc.data().name,
+      description: description || doc.data().description,
+      company: company || doc.data().company,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    return res.status(200).json({
+      message: 'Project metadata updated successfully.',
+      projectId: id,
+    });
+  } catch (error) {
+    console.error('Error updating project metadata:', error);
+    return res.status(500).json({
+      message: 'Error updating metadata.',
+      error: error.message,
+    });
+  }
+});
+
+app.delete('/delete/:id', async (req, res) => {
+  const { id } = req.params; // Extract the ID from the request URL
+
+  try {
+    // 1. Delete folder from Google Cloud Storage
+    const folderPath = `${id}/`; // Assuming folder name is the same as project ID
+    await bucket.deleteFiles({
+      prefix: folderPath, // Delete all files with this prefix (pseudo-folder)
+    });
+    console.log(`Folder ${folderPath} and its contents deleted successfully.`);
+
+    // 2. Delete the Firestore document
+    const docRef = db.collection('projects').doc(id); // Assuming 'projects' is the collection name
+    await docRef.delete();
+    console.log(`Firestore document with ID ${id} deleted successfully.`);
+
+    res.status(200).json({ message: `Project ${id} deleted successfully.` });
+  } catch (error) {
+    console.error('Error deleting project:', error);
+    res.status(500).json({ error: 'Failed to delete project.' });
   }
 });
 
@@ -332,7 +458,7 @@ app.post('/chatProject', async (req, res) => {
   try {
     const { message, codebaseUrl, selectedChat } = req.body;
 
-    console.log("codebaseUrl", codebaseUrl);
+    console.log("codebaseUrl:", codebaseUrl);
 
     // Fetch the content from codebase_analysis.json URL
     const codebaseResponse = await fetch(codebaseUrl);
@@ -341,17 +467,22 @@ app.post('/chatProject', async (req, res) => {
     // Construct the full query
     const fullQuery = selectedChat 
       ? message 
-      : `Based on this codebase ${codebaseContent}, ${message}`;
+      : `Based on this codebase ${codebaseContent}, ${message}. Please format it too, and give 2 lines of space between each new section.`;
 
     // Log the full query for debugging
     console.log('Full query to Gemini API:', fullQuery);
 
     // Send message to Gemini and get the response
     const result = await chat.sendMessage(fullQuery);
+
+    // Log the entire Gemini API response for debugging
     console.log('Gemini API response:', JSON.stringify(result, null, 2));
 
     // Extract the text from the Gemini response
     const responseText = result.response.candidates[0].content.parts[0].text;
+
+    // Log the extracted response text
+    console.log('Extracted response text:', responseText);
 
     // Check if this is a new chat (if `selectedChat` is null or undefined)
     if (!selectedChat) {
@@ -461,7 +592,7 @@ app.post('/retrieveChats', async (req, res) => {
 
 // Default route
 app.get('/', (req, res) => {
-  res.send('hello');
+  res.send('ok');
 });
 
 // Start the server

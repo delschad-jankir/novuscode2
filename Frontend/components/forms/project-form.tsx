@@ -1,6 +1,7 @@
+// components/forms/project-form.tsx
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -9,17 +10,33 @@ import { Heading } from '@/components/ui/heading';
 import { X, Loader2, CheckCircle } from 'lucide-react';
 import { useUserData } from '@/context/UserDataContext';
 
-export const ProjectForm: React.FC = () => {
+interface ProjectFormProps {
+  initialData: {
+    id: string; // New: project ID for updating
+    name?: string;
+    description?: string;
+  } | null;
+  isUpdate?: boolean; // Flag to differentiate between creating and updating
+}
+
+export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData, isUpdate = false }) => {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [githubUrl, setGithubUrl] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false); // Loading state
-  const [success, setSuccess] = useState<boolean>(false); // Success state
+  const [loading, setLoading] = useState<boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false);
 
-  // Access the user data from context
   const { user } = useUserData();
+
+  // Initialize form fields with initialData
+  useEffect(() => {
+    if (initialData) {
+      setName(initialData.name || '');
+      setDescription(initialData.description || '');
+    }
+  }, [initialData]);
 
   const onDrop = useCallback((acceptedFiles: File[], fileRejections: any[]) => {
     if (fileRejections.length > 0) {
@@ -52,46 +69,78 @@ export const ProjectForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true when uploading starts
-    const apiUrl = 'http://localhost:8080';
-
+    setLoading(true);
+  
+    const apiUrl = 'https://novuscode-backend1-83223007958.us-central1.run.app';
+  
     try {
       let response;
-      if (githubUrl) {
-        console.log('Attempting to upload GitHub project...');
-        response = await fetch(`${apiUrl}/uploadGithub`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ githubUrl, name, description, company: user?.company || 'Unknown' }),
-        });
-      } else if (uploadedFiles.length > 0) {
-        console.log('Attempting to upload local file...');
-        const formData = new FormData();
-        formData.append('file', uploadedFiles[0]);
-        formData.append('name', name);
-        formData.append('description', description);
-        formData.append('company', user?.company || 'Unknown');
-
-        response = await fetch(`${apiUrl}/uploadLocal`, {
-          method: 'POST',
-          body: formData,
-        });
+  
+      if (isUpdate && initialData) {
+        if (githubUrl || uploadedFiles.length > 0) {
+          // Case 1: New file or GitHub URL is provided, delete and recreate the project
+  
+          const formData = new FormData();
+          formData.append('name', name);
+          formData.append('description', description);
+          formData.append('company', user?.company || "unknown");
+  
+          if (uploadedFiles.length > 0) {
+            formData.append('file', uploadedFiles[0]);
+          } else if (githubUrl) {
+            formData.append('githubUrl', githubUrl);
+          }
+  
+          response = await fetch(`${apiUrl}/recreateProject/${initialData.id}`, {
+            method: 'POST', // Using POST because we're recreating the project
+            body: formData,
+          });
+  
+        } else {
+          // Case 2: No file or GitHub URL is provided, only update metadata
+          const formData = new FormData();
+          formData.append('name', name);
+          formData.append('description', description);
+          formData.append('company', user?.company || "unknown");
+  
+          response = await fetch(`${apiUrl}/updateMetadata/${initialData.id}`, {
+            method: 'PUT',
+            body: formData,
+          });
+        }
       } else {
-        setError('Please either enter a GitHub URL or upload a file');
-        setLoading(false);
-        return;
+        // Creating a new project logic stays the same as before
+        if (githubUrl) {
+          response = await fetch(`${apiUrl}/uploadGithub`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ githubUrl, name, description }),
+          });
+        } else if (uploadedFiles.length > 0) {
+          const formData = new FormData();
+          formData.append('file', uploadedFiles[0]);
+          formData.append('name', name);
+          formData.append('description', description);
+          formData.append('company', user?.company || "unknown");
+  
+          response = await fetch(`${apiUrl}/uploadLocal`, {
+            method: 'POST',
+            body: formData,
+          });
+        } else {
+          setError('Please either enter a GitHub URL or upload a file');
+          setLoading(false);
+          return;
+        }
       }
-
+  
       const responseText = await response.text();
-      console.log('Response text:', responseText);
-
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}, message: ${responseText}`);
       }
-
-      // Success
+  
       setSuccess(true);
       setLoading(false);
     } catch (error) {
@@ -100,9 +149,10 @@ export const ProjectForm: React.FC = () => {
       setLoading(false);
     }
   };
+  
 
   const handleCloseSuccessMessage = () => {
-    setSuccess(false); // Close the success message
+    setSuccess(false);
   };
 
   return (
@@ -116,7 +166,7 @@ export const ProjectForm: React.FC = () => {
       {!loading && success && (
         <div className="fixed top-5 right-5 p-4 bg-white border-2 border-black text-black rounded-lg shadow-lg flex items-center z-50">
           <CheckCircle className="h-6 w-6 text-black mr-2" />
-          <p>Codebase successfully uploaded!</p>
+          <p>{isUpdate ? 'Project successfully updated!' : 'Codebase successfully uploaded!'}</p>
           <button
             className="ml-auto text-black hover:text-gray-700"
             onClick={handleCloseSuccessMessage}
@@ -128,7 +178,14 @@ export const ProjectForm: React.FC = () => {
 
       <div className={`${loading ? 'blur-sm' : ''}`}>
         <div className="flex items-center justify-between">
-          <Heading title="Create project" description="Upload either a ZIP folder or enter a GitHub repo, but not both." />
+          <Heading
+            title={initialData ? 'Update project' : 'Create project'}
+            description={
+              initialData
+                ? 'Update project details or upload a new codebase.'
+                : 'Upload either a ZIP folder or enter a GitHub repo, but not both.'
+            }
+          />
         </div>
         <Separator />
         <form className="w-full space-y-8" onSubmit={handleSubmit}>
@@ -161,6 +218,7 @@ export const ProjectForm: React.FC = () => {
               </div>
             )}
           </div>
+
           {/* GitHub URL Section */}
           <div>
             <label className="block text-sm font-medium text-gray-700">GitHub URL</label>
@@ -172,20 +230,30 @@ export const ProjectForm: React.FC = () => {
               disabled={uploadedFiles.length > 0}
             />
           </div>
+
           {/* Name and Description Section */}
           <div className="gap-8 md:grid md:grid-cols-2">
             <div>
               <label className="block text-sm font-medium text-gray-700">Name</label>
-              <Input placeholder="Project name" value={name} onChange={(e) => setName(e.target.value)} />
+              <Input
+                placeholder="Project name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Description</label>
-              <Input placeholder="Project description" value={description} onChange={(e) => setDescription(e.target.value)} />
+              <Input
+                placeholder="Project description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
             </div>
           </div>
+
           {/* Submit Button */}
           <Button className="ml-auto" type="submit" disabled={loading}>
-            Create
+            {initialData ? 'Update' : 'Create'}
           </Button>
         </form>
       </div>

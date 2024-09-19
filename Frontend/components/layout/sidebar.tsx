@@ -69,7 +69,7 @@ export default function Sidebar({ className }: SidebarProps) {
   const [modalOpen, setModalOpen] = useState(false); // Track modal state
 
   const isProjectPage =
-    pathname.startsWith('/projects/') && pathname !== '/projects/new';
+    pathname.startsWith('/projects/') && pathname !== '/projects/new' && pathname !== '/projects/update';
   const isChatPage = pathname.includes('/chat');
   const projectId = isProjectPage ? pathname.split('/')[2] : '';
 

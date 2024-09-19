@@ -9,33 +9,47 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { User } from '@/constants/data';
-import { Edit, MoreHorizontal, Trash } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { Edit, MoreHorizontal, Trash, Loader2, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 import { DeleteConfirmationModal } from '@/components/ui/DeleteConfirmationModal';
+import { useRouter } from 'next/navigation'; // Import the router
+import { useProjectData } from '@/context/ProjectDataContext';
 
 interface CellActionProps {
   data: User;
+  onDelete: () => void;
+  isLoading: boolean;
+  isDeleted: boolean;
 }
 
-export const CellAction: React.FC<CellActionProps> = ({ data }) => {
+export const CellAction: React.FC<CellActionProps> = ({
+  data,
+  onDelete,
+  isLoading,
+  isDeleted,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const router = useRouter();
+  const router = useRouter(); // Get the router
+  const { setProjectData } = useProjectData(); // Use your ProjectData context
 
   const handleDeleteConfirm = async () => {
-    // Perform the delete action here
-    console.log('Deleting project:', data.id);
     setIsModalOpen(false);
+    onDelete();
   };
 
   const handleClick = (event: React.MouseEvent) => {
-    event.stopPropagation(); // Prevent click event from bubbling up to row
+    event.stopPropagation(); // Prevent the default click behavior
   };
 
-  // Ensure the click does not trigger navigation
+  const handleUpdateClick = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent row click behavior
+    setProjectData(data); // Store the project data in the context
+    router.push('/projects/update'); // Navigate to the update page
+  };
+
   const handleDeleteClick = (event: React.MouseEvent) => {
-    event.preventDefault(); // Prevent default action if any
-    event.stopPropagation(); // Prevent click event from bubbling up to row
+    event.preventDefault();
+    event.stopPropagation();
     setIsModalOpen(true);
   };
 
@@ -55,13 +69,19 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
-          <DropdownMenuItem
-            onClick={() => router.push(`/dashboard/user/${data.id}`)}
-          >
+          <DropdownMenuItem onClick={handleUpdateClick}>
             <Edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleDeleteClick}>
-            <Trash className="mr-2 h-4 w-4" /> Delete
+            {isLoading ? (
+              <Loader2 className="animate-spin mr-2 h-4 w-4" />
+            ) : isDeleted ? (
+              <CheckCircle className="text-green-500 mr-2 h-4 w-4" />
+            ) : (
+              <>
+                <Trash className="mr-2 h-4 w-4" /> Delete
+              </>
+            )}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
